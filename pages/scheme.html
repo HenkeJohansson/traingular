@@ -5,14 +5,19 @@
 <div class="scheme">
 	<h1 class="text-center">Måndag</h1>
 	<h4 class="text-center">Bröst och Axlar</h4>
-	<ul>
-		<li class="week-day"><h2 class="text-center">Övning 1</h2></li>
-		<li class="week-day"><h2 class="text-center">Övning 2</h2></li>
-		<li class="week-day"><h2 class="text-center">Övning 3</h2></li>
-		<li class="week-day"><h2 class="text-center">Övning 4</h2></li>
-		<li class="week-day"><h2 class="text-center">Övning 5</h2></li>
-		<li class="week-day"><h2 class="text-center">Övning 6</h2></li>
-		<li class="week-day"><h2 class="text-center">Övning 7</h2></li>
-		<li class="week-day"><h2 class="text-center">Övning 8</h2></li>
-	</ul>
+
+	<accordion close-others="onAtATime">
+		<accordion-group heading="{{exercise.name}}" ng-repeat="exercise in scheme.exercises">
+			<div class="exercise-desc">
+				<ul>
+					<li>{{exercise.reps}} reps</li>
+					<li>{{exercise.sets}} sets</li>
+				</ul>
+				<p>{{exercise.desc}}</p>
+			</div><!-- .exercise-desc -->
+		</accordion-group>
+	</accordion>
+
 </div>
+
+

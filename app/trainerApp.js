@@ -159,4 +159,46 @@ trainerApp.controller('schemeCtrl', function() {
 	*/
 	var scheme = this;
 
+scheme.exercises = [
+
+
+		{
+			name : 'Shoulder Presses',
+			reps: 10,
+			sets : 3,
+			desc : 'Lorem Ipsum'
+		},
+		{
+			name : 'Arnold Shoulder Presses',
+			reps : 8,
+			sets : 3,
+			desc: 'beskrivning'
+		},
+		{
+			name : 'Biceps Curls',
+			reps: 10,
+			sets : 3,
+			desc : 'Lorem Ipsum'
+		},
+		{
+			name : 'Triceps pushdowns',
+			reps : 8,
+			sets : 3,
+			desc: 'beskrivning'
+		},
+		{
+			name : 'Bench Press',
+			reps: 10,
+			sets : 3,
+			desc : 'Lorem Ipsum'
+		},
+		{
+			name : 'Cable Flyes',
+			reps : 8,
+			sets : 3,
+			desc: 'beskrivning'
+		},
+
+	];
+
 });

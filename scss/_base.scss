@@ -72,7 +72,7 @@ h5 {font-size: 22px;}
 	}
 }
 
-.muscle-group {
+.muscle-group, .scheme {
 	width: 100%;
 	// background-color: $transparentWhite;
 	padding: 20px;
@@ -236,4 +236,19 @@ h5 {font-size: 22px;}
 
 .scheme {
 	background-color: $transparentWhite;
+	padding: 20px 0;
+
+	.week-day {
+		list-style: none;
+	}
+
+	.panel {
+
+		.panel-heading {
+
+			h4 {
+				font-size: 22px;
+			}
+		}
+	}
 }
