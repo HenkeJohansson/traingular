@@ -1,0 +1,32 @@
+
+
+/*
+** COLORS
+*/
+
+$transparentWhite: rgba(255,255,255, .4);
+
+// Primary tones - purples
+$color_green-1: #54BE68;
+$color_green-2: #2CB060;
+$color_green-3: #1AA261;
+$color_green-4: #0C8D64;
+$color_green-5: #037868;
+
+
+$_color-base-grey: rgb(229,231,234);
+
+$palettes: (
+    purple: (
+        base:   rgb(42,40,80),
+        light:  rgb(51,46,140),
+        dark:   rgb(40,38,65)
+    ),
+    grey: (
+        base:  $_color-base-grey,
+        light: lighten($_color-base-grey, 10%),
+        dark: darken($_color-base-grey, 10%)
+    )
+);
+
+// http://www.sitepoint.com/managing-color-values-with-sass/
