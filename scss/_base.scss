@@ -15,6 +15,7 @@ body {
 	font-weight: 300;
 }
 
+
 #view {
 	margin-top: 130px;
 	padding: 0;
@@ -236,18 +237,22 @@ h5 {font-size: 22px;}
 
 .scheme {
 	background-color: $transparentWhite;
-	padding: 20px 0;
+	padding: 20px 0 0 0;
 
 	.week-day {
 		list-style: none;
 	}
 
-	.panel {
+	.panel-group {
+		margin-bottom: 0;
 
-		.panel-heading {
+		.panel {
 
-			h4 {
-				font-size: 22px;
+			.panel-heading {
+
+				h4 {
+					font-size: 22px;
+				}
 			}
 		}
 	}
