@@ -31,6 +31,7 @@ trainerApp.controller('mainCtrl', function() {
 
 	var main = this;
 	main.message = 'This is Main Controller to Major Tom';
+	main.headline = 'TrainerApp';
 
 });
 
@@ -159,7 +160,9 @@ trainerApp.controller('schemeCtrl', function() {
 	*/
 	var scheme = this;
 
-scheme.exercises = [
+	scheme.headline = "Schema";
+
+	scheme.exercises = [
 
 
 		{

@@ -1,15 +1,20 @@
 <!-- scheme.html -->
 
-<h1 class="text-center">Schema</h1>
+<header id="header-home">
+	<a href="/"><h1 class="text-center">Schema!</h1></a>
+</header>
 
 <div class="scheme">
 	<h1 class="text-center">Måndag</h1>
 	<h4 class="text-center">Bröst och Axlar</h4>
 
 	<accordion close-others="onAtATime">
-		<accordion-group heading="{{exercise.name}}" ng-repeat="exercise in scheme.exercises">
+		<accordion-group is-open="isopen" ng-repeat="exercise in scheme.exercises">
+			<accordion-heading ng-click="isopen=!isopen">
+				<div class="panel-header"><h4>{{exercise.name}}</h4></div>
+			</accordion-heading>
 			<div class="exercise-desc">
-				<ul>
+				<ul class="reps-sets">
 					<li>{{exercise.reps}} reps</li>
 					<li>{{exercise.sets}} sets</li>
 				</ul>
@@ -18,6 +23,6 @@
 		</accordion-group>
 	</accordion>
 
-</div>
+</div><!-- .scheme -->
 
 

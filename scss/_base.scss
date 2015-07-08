@@ -6,7 +6,7 @@
 * {
 	padding: 0;
 	margin: 0;
-	border-box: box-sizing;
+	box-sizing: border-box;
 }
 
 body {
@@ -17,7 +17,7 @@ body {
 
 
 #view {
-	margin-top: 130px;
+	// margin-top: 130px;
 	padding: 0;
 }
 
@@ -31,6 +31,9 @@ h3 {font-size: 32px;}
 h4 {font-size: 28px;}
 h5 {font-size: 22px;}
 
+a:focus {
+	outline: none;
+}
 
 
 /*******************************************************************************************
@@ -65,7 +68,6 @@ h5 {font-size: 22px;}
 
 		h4 {
 			font-weight: 200;
-			font-size: 36px;
 			text-align: center;
 			line-height: 90px;
 			text-transform: uppercase;
@@ -88,7 +90,7 @@ h5 {font-size: 22px;}
 		text-align: center;
 	}
 
-	ul {
+	.reps-sets {
 		list-style: none;
 
 		li {
@@ -201,6 +203,17 @@ h5 {font-size: 22px;}
 **
 *******************************************************************************************/
 
+#header-home  {
+	height: 30vh;
+	background-color: pink;
+	
+	h1 {
+		margin: 0;
+		line-height: 30vh;
+	}
+}
+
+
 /*******************************************************************************************
 ** 										HOME
 *******************************************************************************************/
@@ -209,17 +222,22 @@ h5 {font-size: 22px;}
 	width: 100%;
 	list-style: none;
 	display: inline-block;
+	
+	a {
+		text-decoration: none;
+		color: white;
 
-	li {
-		background-color: $transparentWhite;
-		height: 100px;
+		li {
+			background-color: $transparentWhite;
+			height: 100px;
 
-		h3 {
-			text-align: center;
-			line-height: 100px;
-			text-transform: uppercase;
-			// margin-top: 0;
-			margin-bottom: 0;
+			h3 {
+				text-align: center;
+				line-height: 100px;
+				text-transform: uppercase;
+				margin-top: 0;
+				margin-bottom: 0;
+			}
 		}
 	}
 }
@@ -248,7 +266,7 @@ h5 {font-size: 22px;}
 
 		.panel {
 
-			.panel-heading {
+			.panel-header {
 
 				h4 {
 					font-size: 22px;

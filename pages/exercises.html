@@ -1,17 +1,23 @@
 <!-- exercises.html -->
 
+<header id="header-home">
+	<a href="/"><h1 class="text-center">Övningar!</h1></a>
+</header>
+
 <div class="muscle-groups">
-	<h1 class="text-center">Övningar</h1>
-	<accordion close-others="onAtATime">
-		<accordion-group heading="{{muscleGroup.name}}" ng-repeat="muscleGroup in routines.muscleGroups">
-			<div  id="{{muscleGroup.name}}" class="exercise muscle-group" ng-repeat="exercise in muscleGroup.exercises">
-				<h5>{{exercise.name}}</h5>
-				<ul>
-					<li>{{exercise.reps}} reps</li>
-					<li>{{exercise.sets}} sets</li>
-				</ul>
-				<p>{{exercise.desc}}</p>
-			</div><!-- .exercise -->
+	<accordion close-others="true">
+		<accordion-group is-open="isopen" ng-repeat="muscleGroup in routines.muscleGroups">
+			<accordion-heading ng-click="isopen=!isopen">
+				<div class="panel-header"><h4>{{muscleGroup.name}}</h4></div>
+			</accordion-heading>
+				<div  id="{{muscleGroup.name}}" class="exercise muscle-group" ng-repeat="exercise in muscleGroup.exercises">
+					<h5>{{exercise.name}}</h5>
+					<ul class="reps-sets">
+						<li>{{exercise.reps}} reps</li>
+						<li>{{exercise.sets}} sets</li>
+					</ul>
+					<p>{{exercise.desc}}</p>
+				</div><!-- .exercise -->
 		</accordion-group>
 	</accordion>
-</div>
+</div><!-- .muscle-groups -->
