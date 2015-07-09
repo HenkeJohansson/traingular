@@ -18,7 +18,7 @@
 	<h1 class="text-center">Måndag</h1>
 	<h4 class="text-center">Bröst och Axlar</h4>
 
-	<accordion close-others="onAtATime">
+	<accordion close-others="true">
 		<accordion-group is-open="isopen" ng-repeat="exercise in scheme.exercises">
 			<accordion-heading ng-click="isopen=!isopen">
 				<div class="panel-header"><h4>{{exercise.name}}</h4></div>
