@@ -162,6 +162,10 @@ trainerApp.controller('schemeCtrl', function() {
 
 	scheme.headline = "Schema";
 
+	scheme.selectDay = function() {
+		scheme.selectedDay = "Button";
+	};
+
 	scheme.exercises = [
 
 
