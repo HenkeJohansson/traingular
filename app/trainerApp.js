@@ -162,21 +162,9 @@ trainerApp.controller('schemeCtrl', function() {
 
 	scheme.headline = "Schema";
 
-	scheme.radioModel = {
-		day: 'Tisdag'
+	scheme.selectDay = function() {
+		scheme.selectedDay = "Button";
 	};
-
-	scheme.day = "Måndag";
-
-	scheme.radioDay = [
-		{dayVal : 'mon', showDay : 'Måndag'},
-		{dayVal : 'tue', showDay : 'Tisdag'},
-		{dayVal : 'wed', showDay : 'Onsdag'},
-		{dayVal : 'thu', showDay : 'Torsdag'},
-		{dayVal : 'fri', showDay : 'Fredag'},
-		{dayVal : 'sat', showDay : 'Lördag'},
-		{dayVal : 'sun', showDay : 'Söndag'}
-	];
 
 	scheme.exercises = [
 
