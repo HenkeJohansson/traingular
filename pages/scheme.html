@@ -5,17 +5,17 @@
 </header>
 
 <div class="btn-group btns-days">
-	<label class="btn btn-primary" ng-click="selectDay()" ng-model="radioModel" btn-radio="'mon'">Måndag</label>
-	<label class="btn btn-primary" ng-model="radioModel" btn-radio="'tue'">Tisdag</label>
-	<label class="btn btn-primary" ng-model="radioModel" btn-radio="'wed'">Onsdag</label>
-	<label class="btn btn-primary" ng-model="radioModel" btn-radio="'thu'">Torsdag</label>
-	<label class="btn btn-primary" ng-model="radioModel" btn-radio="'fri'">Fredag</label>
-	<label class="btn btn-primary" ng-model="radioModel" btn-radio="'sat'">Lördag</label>
-	<label class="btn btn-primary" ng-model="radioModel" btn-radio="'sun'">Söndag</label>
+	<label class="btn btn-primary" ng-model="selectedDay" btn-radio="'Måndag'">Måndag</label>
+	<label class="btn btn-primary" ng-model="selectedDay" btn-radio="'Tisdag'">Tisdag</label>
+	<label class="btn btn-primary" ng-model="selectedDay" btn-radio="'Onsdag'">Onsdag</label>
+	<label class="btn btn-primary" ng-model="selectedDay" btn-radio="'Torsdag'">Torsdag</label>
+	<label class="btn btn-primary" ng-model="selectedDay" btn-radio="'Fredag'">Fredag</label>
+	<label class="btn btn-primary" ng-model="selectedDay" btn-radio="'Lördag'">Lördag</label>
+	<label class="btn btn-primary" ng-model="selectedDay" btn-radio="'Söndag'">Söndag</label>
 </div>
 
 <div class="scheme">
-	<h1 class="text-center">{{scheme.selectedDay}}</h1>
+	<h1 class="text-center">{{selectedDay}}</h1>
 	<h4 class="text-center">Bröst och Axlar</h4>
 
 	<accordion close-others="true">
