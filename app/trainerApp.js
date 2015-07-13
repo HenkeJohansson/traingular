@@ -160,53 +160,150 @@ trainerApp.controller('schemeCtrl', function() {
 	** den dagens schema automatiskt. Ska php eller JS kolla?
 	*/
 	var scheme = this;
-
 	scheme.headline = "Schema";
 
-	scheme.selectedDay = 'Måndag';
+	// Använda till att visa dagens träningspass?
+	scheme.today = new Date();
 
-	console.log(scheme.selectedDay);
+	scheme.mon = function() {
+		scheme.muscleGroups = 'Bröst & Axlar';
+		
+		scheme.exercises = [
 
-	scheme.exercises = [
+
+			{
+				name : 'Shoulder Presses',
+				reps: 10,
+				sets : 3,
+				desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore dolores, quos odit consequuntur nam facere consectetur maiores.'
+			},
+			{
+				name : 'Arnold Shoulder Presses',
+				reps : 8,
+				sets : 3,
+				desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quas libero voluptatum magnam tempora, aliquam, aliquid!'
+			},
+			{
+				name : 'Biceps Curls',
+				reps: 10,
+				sets : 3,
+				desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+			},
+			{
+				name : 'Triceps pushdowns',
+				reps : 8,
+				sets : 3,
+				desc: 'Lorem ipsum dolor sit.'
+			},
+			{
+				name : 'Bench Press',
+				reps: 10,
+				sets : 3,
+				desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa ullam, ipsam.'
+			},
+			{
+				name : 'Cable Flyes',
+				reps : 8,
+				sets : 3,
+				desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+			},
+
+		];
+	};
+
+	scheme.tue = function() {
+		scheme.muscleGroups = 'Vilodag';
+		scheme.exercises = [];
+	};
+
+	scheme.wed = function() {
+		scheme.muscleGroups = 'Rygg & Ben';
+		
+		scheme.exercises = [
 
 
-		{
-			name : 'Shoulder Presses',
-			reps: 10,
-			sets : 3,
-			desc : 'Lorem Ipsum'
-		},
-		{
-			name : 'Arnold Shoulder Presses',
-			reps : 8,
-			sets : 3,
-			desc: 'beskrivning'
-		},
-		{
-			name : 'Biceps Curls',
-			reps: 10,
-			sets : 3,
-			desc : 'Lorem Ipsum'
-		},
-		{
-			name : 'Triceps pushdowns',
-			reps : 8,
-			sets : 3,
-			desc: 'beskrivning'
-		},
-		{
-			name : 'Bench Press',
-			reps: 10,
-			sets : 3,
-			desc : 'Lorem Ipsum'
-		},
-		{
-			name : 'Cable Flyes',
-			reps : 8,
-			sets : 3,
-			desc: 'beskrivning'
-		},
+			{
+				name : 'Squats',
+				reps: 10,
+				sets : 3,
+				desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, quibusdam.'
+			},
+			{
+				name : 'Marklyft',
+				reps : 8,
+				sets : 3,
+				desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, perspiciatis officiis ad. Alias, porro tempora.'
+			},
+			{
+				name : 'Låg rodd',
+				reps: 10,
+				sets : 3,
+				desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing.'
+			},
+			{
+				name : 'Plankan',
+				reps : 8,
+				sets : 3,
+				desc: 'Lorem ipsum dolor sit amet.'
+			},
+		];
+	};
 
-	];
+	scheme.thu = function() {
+		scheme.muscleGroups = 'Vilodag';
+		scheme.exercises = [];
+	};
+
+	scheme.fri = function() {
+		scheme.muscleGroups = 'Mage & Armar';
+		
+		scheme.exercises = [
+
+
+			{
+				name : 'Situps',
+				reps: 10,
+				sets : 3,
+				desc : 'Lorem ipsum dolor sit.'
+			},
+			{
+				name : 'Spider Man Armhävningar',
+				reps : 8,
+				sets : 3,
+				desc: 'Lorem ipsum dolor sit amet.'
+			},
+			{
+				name : 'Biceps Curls',
+				reps: 10,
+				sets : 3,
+				desc : 'Lorem ipsum dolor sit.'
+			},
+			{
+				name : 'Triceps pushdowns',
+				reps : 8,
+				sets : 3,
+				desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing.'
+			},
+			{
+				name : 'situps 2',
+				reps: 10,
+				sets : 3,
+				desc : 'Lorem ipsum dolor sit amet, consectetur.'
+			},
+		];
+	};
+
+	scheme.sat = function() {
+		scheme.muscleGroups = 'Springa';
+		scheme.exercises = [];
+	};
+
+	scheme.sun = function() {
+		scheme.muscleGroups = 'Söndag';
+		scheme.exercises = [];
+	};
+
+
+
 
 });

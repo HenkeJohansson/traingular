@@ -4,19 +4,22 @@
 	<a href="/"><h1 class="text-center">{{scheme.headline}}!</h1></a>
 </header>
 
-<div class="btn-group btns-days">
-	<label class="btn btn-primary" ng-model="selectedDay" btn-radio="'Måndag'">Måndag</label>
-	<label class="btn btn-primary" ng-model="selectedDay" btn-radio="'Tisdag'">Tisdag</label>
-	<label class="btn btn-primary" ng-model="selectedDay" btn-radio="'Onsdag'">Onsdag</label>
-	<label class="btn btn-primary" ng-model="selectedDay" btn-radio="'Torsdag'">Torsdag</label>
-	<label class="btn btn-primary" ng-model="selectedDay" btn-radio="'Fredag'">Fredag</label>
-	<label class="btn btn-primary" ng-model="selectedDay" btn-radio="'Lördag'">Lördag</label>
-	<label class="btn btn-primary" ng-model="selectedDay" btn-radio="'Söndag'">Söndag</label>
-</div>
+<form>
+	<div class="btn-group btns-days">
+		<label class="btn btn-primary" ng-click="scheme.mon()" ng-model="radios.selectedDay" btn-radio="'Måndag'">Måndag</label>
+		<label class="btn btn-primary" ng-click="scheme.tue()" ng-model="radios.selectedDay" btn-radio="'Tisdag'">Tisdag</label>
+		<label class="btn btn-primary" ng-click="scheme.wed()" ng-model="radios.selectedDay" btn-radio="'Onsdag'">Onsdag</label>
+		<label class="btn btn-primary" ng-click="scheme.thu()" ng-model="radios.selectedDay" btn-radio="'Torsdag'">Torsdag</label>
+		<label class="btn btn-primary" ng-click="scheme.fri()" ng-model="radios.selectedDay" btn-radio="'Fredag'">Fredag</label>
+		<label class="btn btn-primary" ng-click="scheme.sat()" ng-model="radios.selectedDay" btn-radio="'Lördag'">Lördag</label>
+		<label class="btn btn-primary" ng-click="scheme.sun()" ng-model="radios.selectedDay" btn-radio="'Söndag'">Söndag</label>
+	</div>
+</form>
 
 <div class="scheme">
-	<h1 class="text-center">{{selectedDay}}</h1>
-	<h4 class="text-center">Bröst och Axlar</h4>
+	<h1 class="text-center">{{radios.selectedDay}}</h1>
+	<h4 class="text-center">{{scheme.muscleGroups}}</h4>
+	<p class="text-center">{{scheme.today | date: 'EEE'}}</p>
 
 	<accordion close-others="true">
 		<accordion-group is-open="isopen" ng-repeat="exercise in scheme.exercises">
