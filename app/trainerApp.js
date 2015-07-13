@@ -40,6 +40,7 @@ trainerApp.controller('routinesCtrl', function() {
 	** Ska visa alla övningar och ska filtreras per muskelgrupp
 	*/
 	var routines = this;
+	routines.headline = "Övningar";
 
 	routines.oneAtATime = true;
 
@@ -163,6 +164,8 @@ trainerApp.controller('schemeCtrl', function() {
 	scheme.headline = "Schema";
 
 	scheme.selectedDay = 'Måndag';
+
+	console.log(scheme.selectedDay);
 
 	scheme.exercises = [
 
