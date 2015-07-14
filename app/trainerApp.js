@@ -162,10 +162,14 @@ trainerApp.controller('schemeCtrl', function() {
 	var scheme = this;
 	scheme.headline = "Schema";
 
-	// Använda till att visa dagens träningspass?
-	scheme.today = new Date();
 
+	/***********************************************************************************************************
+	**
+	** 											Day Functions
+	**
+	***********************************************************************************************************/
 	scheme.mon = function() {
+		scheme.day = 'Måndag';
 		scheme.muscleGroups = 'Bröst & Axlar';
 		
 		scheme.exercises = [
@@ -212,11 +216,13 @@ trainerApp.controller('schemeCtrl', function() {
 	};
 
 	scheme.tue = function() {
+		scheme.day = 'Tisdag';
 		scheme.muscleGroups = 'Vilodag';
 		scheme.exercises = [];
 	};
 
 	scheme.wed = function() {
+		scheme.day = 'Onsdag';
 		scheme.muscleGroups = 'Rygg & Ben';
 		
 		scheme.exercises = [
@@ -250,11 +256,13 @@ trainerApp.controller('schemeCtrl', function() {
 	};
 
 	scheme.thu = function() {
+		scheme.day = 'Torsdag';
 		scheme.muscleGroups = 'Vilodag';
 		scheme.exercises = [];
 	};
 
 	scheme.fri = function() {
+		scheme.day = 'Fredag';
 		scheme.muscleGroups = 'Mage & Armar';
 		
 		scheme.exercises = [
@@ -294,16 +302,39 @@ trainerApp.controller('schemeCtrl', function() {
 	};
 
 	scheme.sat = function() {
+		scheme.day = 'Lördag';
 		scheme.muscleGroups = 'Springa';
 		scheme.exercises = [];
 	};
 
 	scheme.sun = function() {
-		scheme.muscleGroups = 'Söndag';
+		scheme.day = 'Söndag';
+		scheme.muscleGroups = 'Netflix';
 		scheme.exercises = [];
 	};
 
 
+	/***********************************************************************************************************
+	**
+	** 											Todays scheme
+	**
+	***********************************************************************************************************/
+
+	scheme.today = new Date();
+
+
+	scheme.dayFunctions = {
+		1 : scheme.mon,
+		2 : scheme.tue,
+		3 : scheme.wed,
+		4 : scheme.thu,
+		5 : scheme.fri,
+		6 : scheme.sat,
+		7 : scheme.sun
+	};
+
+
+	scheme.dayFunctions[scheme.today.getDay()]();
 
 
 });

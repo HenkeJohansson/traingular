@@ -17,9 +17,8 @@
 </form>
 
 <div class="scheme">
-	<h1 class="text-center">{{radios.selectedDay}}</h1>
+	<h1 class="text-center">{{scheme.day}}</h1>
 	<h4 class="text-center">{{scheme.muscleGroups}}</h4>
-	<p class="text-center">{{scheme.today | date: 'EEE'}}</p>
 
 	<accordion close-others="true">
 		<accordion-group is-open="isopen" ng-repeat="exercise in scheme.exercises">
