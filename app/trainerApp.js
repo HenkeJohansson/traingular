@@ -10,8 +10,8 @@ trainerApp.config(function($routeProvider, $locationProvider) {
 	$routeProvider
 		.when('/', {
 			templateUrl  : 'pages/home.html',
-			controller 	 : 'mainCtrl',
-			controllerAs : 'main'
+			controller 	 : 'homeCtrl',
+			controllerAs : 'home'
 		})
 		.when('/exercises', {
 			templateUrl  : 'pages/exercises.html',
@@ -30,9 +30,22 @@ trainerApp.config(function($routeProvider, $locationProvider) {
 trainerApp.controller('mainCtrl', function() {
 
 	var main = this;
-	main.message = 'This is Main Controller to Major Tom';
-	main.headline = 'TrainerApp';
 
+	this.isOpened = false;
+	this.toggleMenu = function() {
+		main.isOpened = !main.isOpened;
+	};
+
+	main.closeMenu = function() {
+		main.isOpened = false;
+	};
+
+});
+
+trainerApp.controller('homeCtrl', function() {
+
+	var home = this;
+	this.headline = 'TrainerApp';
 });
 
 trainerApp.controller('routinesCtrl', function() {

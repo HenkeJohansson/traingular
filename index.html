@@ -22,28 +22,31 @@
 	<base href="/">
 
 </head>
-<body ng-controller="mainCtrl">
-	<input type="checkbox" id="toggle-sidebar">
+<body ng-controller="mainCtrl as main">
+	<!-- <input type="checkbox" id="toggle-sidebar"> -->
 	<div id="wrapper">
 	
-		<label for="toggle-sidebar" class="label-sidebar">☰</label>
+		<!-- <label for="toggle-sidebar" class="label-sidebar">☰</label> -->
+
+		<span class="menubutton" ng-click="main.toggleMenu()" ng-class="{opened: main.isOpened, closed: !main.isOpened}">☰</span>
 	
-		<div id="content">
+		<div id="content" ng-class="{opened: main.isOpened, closed: !main.isOpened}">
 
 			<div ng-view id="view">
 				<!-- Main content with injected views -->
 			</div><!-- #view -->
 		</div><!-- #content -->
 
-			<div id="sidebar">
-				<h3>TräningsApp</h3>
-				<ul class="menu-list">
-					<li><a href="/"><i class="fa fa-home"></i> Home</a></li>
-					<li><a href="exercises"><i class="fa fa-cube"></i> Exercises</a></li>
-					<li><a href="scheme"><i class="fa fa-calendar"></i> Schema</a></li>
-					<li><a href="configs"><i class="fa fa-cogs"></i> Inställningar</a></li>
-				</ul>
-			</div><!-- .side-menu -->
+
+		<div id="menu" ng-class="{opened: main.isOpened, closed: !main.isOpened}">
+			<h3>TräningsApp</h3>
+			<ul class="menu-list">
+				<li><a ng-click="main.closeMenu()" href="/"><i class="fa fa-home"></i> Home</a></li>
+				<li><a ng-click="main.closeMenu()" href="exercises"><i class="fa fa-cube"></i> Exercises</a></li>
+				<li><a ng-click="main.closeMenu()" href="scheme"><i class="fa fa-calendar"></i> Schema</a></li>
+				<li><a ng-click="main.closeMenu()" href="configs"><i class="fa fa-cogs"></i> Inställningar</a></li>
+			</ul>
+		</div>
 
 	</div><!-- #wrapper -->
 </body>

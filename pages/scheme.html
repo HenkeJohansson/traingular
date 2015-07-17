@@ -16,25 +16,23 @@
 	</div>
 </form>
 
+
 <div class="scheme">
-	<h1 class="text-center">{{scheme.day}}</h1>
-	<h4 class="text-center">{{scheme.muscleGroups}}</h4>
-
-	<accordion close-others="true">
-		<accordion-group is-open="isopen" ng-repeat="exercise in scheme.exercises">
-			<accordion-heading ng-click="isopen=!isopen">
-				<div class="panel-header"><h4>{{exercise.name}}</h4></div>
-			</accordion-heading>
-			<div class="exercise-desc">
-				<ul class="reps-sets">
-					<li>{{exercise.reps}} reps</li>
-					<li>{{exercise.sets}} sets</li>
-				</ul>
-				<p>{{exercise.desc}}</p>
-			</div><!-- .exercise-desc -->
-		</accordion-group>
-	</accordion>
-
-</div><!-- .scheme -->
-
-
+	<ul class="exercises" ng-repeat="exercise in scheme.exercises">
+		<div class="check">
+			<input class="exercise-check" type="checkbox" ng-model="exercise.done">
+		</div>
+		<div class="exercise">
+			<h4>{{exercise.name}}</h4>
+			<li>
+				<div class="exercise-desc">
+					<ul class="reps-sets">
+						<li>{{exercise.reps}} reps</li>
+						<li>{{exercise.sets}} sets</li>
+					</ul>
+					<p>{{exercise.desc}}</p>
+				</div><!-- .exercise-desc -->
+			</li>
+		</div><!-- .exercise -->
+	</ul>
+</div>
