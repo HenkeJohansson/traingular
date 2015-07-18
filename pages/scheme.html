@@ -18,13 +18,18 @@
 
 
 <div class="scheme">
-	<ul class="exercises" ng-repeat="exercise in scheme.exercises">
-		<div class="check">
-			<input class="exercise-check" type="checkbox" ng-model="exercise.done">
+	<div class="header-scheme">
+		<h1 class="text-center day-headline">{{scheme.day}}</h1>
+		<h2 class="text-center muscle-groups-headline">{{scheme.muscleGroups}}</h2>
+	</div><!-- .header-scheme -->
+	<ul class="exercises row" ng-repeat="exercise in scheme.exercises">
+		<div class="check col-xs-3">
+			<input id="exz{{exercise.id}}" class="exercise-check" type="checkbox" ng-model="exercise.done">
+			<label for="exz{{exercise.id}}"><span></span></label>
 		</div>
-		<div class="exercise">
+		<div class="exercise col-xs-9">
 			<h4>{{exercise.name}}</h4>
-			<li>
+			<li class="exercise-li">
 				<div class="exercise-desc">
 					<ul class="reps-sets">
 						<li>{{exercise.reps}} reps</li>
@@ -32,7 +37,7 @@
 					</ul>
 					<p>{{exercise.desc}}</p>
 				</div><!-- .exercise-desc -->
-			</li>
+			</li><!-- .exercise-li -->
 		</div><!-- .exercise -->
-	</ul>
-</div>
+	</ul><!-- .exercises -->
+</div><!-- .scheme -->

@@ -189,36 +189,42 @@ trainerApp.controller('schemeCtrl', function() {
 
 
 			{
+				id 	 : 10,
 				name : 'Shoulder Presses',
 				reps: 10,
 				sets : 3,
 				desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore dolores, quos odit consequuntur nam facere consectetur maiores.'
 			},
 			{
+				id 	 : 11,
 				name : 'Arnold Shoulder Presses',
 				reps : 8,
 				sets : 3,
 				desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quas libero voluptatum magnam tempora, aliquam, aliquid!'
 			},
 			{
+				id 	 : 12,
 				name : 'Biceps Curls',
 				reps: 10,
 				sets : 3,
 				desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
 			},
 			{
+				id 	 : 13,
 				name : 'Triceps pushdowns',
 				reps : 8,
 				sets : 3,
 				desc: 'Lorem ipsum dolor sit.'
 			},
 			{
+				id 	 : 14,
 				name : 'Bench Press',
 				reps: 10,
 				sets : 3,
 				desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa ullam, ipsam.'
 			},
 			{
+				id 	 : 15,
 				name : 'Cable Flyes',
 				reps : 8,
 				sets : 3,
@@ -242,24 +248,28 @@ trainerApp.controller('schemeCtrl', function() {
 
 
 			{
+				id 	 : 6,
 				name : 'Squats',
 				reps: 10,
 				sets : 3,
 				desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, quibusdam.'
 			},
 			{
+				id 	 : 7,
 				name : 'Marklyft',
 				reps : 8,
 				sets : 3,
 				desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, perspiciatis officiis ad. Alias, porro tempora.'
 			},
 			{
+				id 	 : 8,
 				name : 'Låg rodd',
 				reps: 10,
 				sets : 3,
 				desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing.'
 			},
 			{
+				id 	 : 9,
 				name : 'Plankan',
 				reps : 8,
 				sets : 3,
@@ -282,30 +292,35 @@ trainerApp.controller('schemeCtrl', function() {
 
 
 			{
+				id 	 : 1,
 				name : 'Situps',
 				reps: 10,
 				sets : 3,
 				desc : 'Lorem ipsum dolor sit.'
 			},
 			{
+				id 	 : 2,
 				name : 'Spider Man Armhävningar',
 				reps : 8,
 				sets : 3,
 				desc: 'Lorem ipsum dolor sit amet.'
 			},
 			{
+				id 	 : 3,
 				name : 'Biceps Curls',
 				reps: 10,
 				sets : 3,
 				desc : 'Lorem ipsum dolor sit.'
 			},
 			{
+				id 	 : 4,
 				name : 'Triceps pushdowns',
 				reps : 8,
 				sets : 3,
 				desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing.'
 			},
 			{
+				id 	 : 5,
 				name : 'situps 2',
 				reps: 10,
 				sets : 3,
