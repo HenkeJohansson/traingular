@@ -28,7 +28,10 @@ trainerApp.config(function($routeProvider, $locationProvider) {
 });
 
 trainerApp.controller('mainCtrl', function() {
-
+	/*
+	** Övergripande Controller för appen
+	** hanterar bland annat menyn
+	*/
 	var main = this;
 
 	this.isOpened = false;
@@ -36,29 +39,36 @@ trainerApp.controller('mainCtrl', function() {
 		main.isOpened = !main.isOpened;
 	};
 
-	main.closeMenu = function() {
+	this.closeMenu = function() {
 		main.isOpened = false;
 	};
 
 });
 
 trainerApp.controller('homeCtrl', function() {
-
+	/*
+	** Controller till start sidan
+	** i dagsläget behövs inte så mycket av den
+	*/
 	var home = this;
 	this.headline = 'TrainerApp';
 });
 
 trainerApp.controller('routinesCtrl', function() {
 	/*
-	** Ska visa alla övningar och ska filtreras per muskelgrupp
+	** Ska visa alla övningar som finns inlagda
+	** och ska filtreras per muskelgrupp
 	*/
 	var routines = this;
-	routines.headline = "Övningar";
+	this.headline = "Övningar";
 
-	routines.oneAtATime = true;
+	this.oneAtATime = true;
 
+	/***********************************************************************************************************
+	** 											Show All Exercises
+	***********************************************************************************************************/
 
-	routines.muscleGroups = [
+	this.muscleGroups = [
 
 		{
 			name : 'Axlar',
@@ -165,7 +175,28 @@ trainerApp.controller('routinesCtrl', function() {
 
 	];
 
+	/***********************************************************************************************************
+	** 											Add Exercises
+	***********************************************************************************************************/
+
+	routines.add = {};
+
+	routines.addExercise = function() {
+		alert('Functionen körs iaf');
+		routines.add.push({
+			name: routines.name,
+			muscleGroup: routines.muscleGroup,
+			reps: routines.reps,
+			sets: routines.sets,
+			desc: routines.desc
+		});
+
+		routines.name = '';
+		routines.desc = '';
+	};
+
 });
+
 
 trainerApp.controller('schemeCtrl', function() {
 	/*
@@ -173,13 +204,11 @@ trainerApp.controller('schemeCtrl', function() {
 	** den dagens schema automatiskt. Ska php eller JS kolla?
 	*/
 	var scheme = this;
-	scheme.headline = "Schema";
+	this.headline = "Schema";
 
 
 	/***********************************************************************************************************
-	**
 	** 											Day Functions
-	**
 	***********************************************************************************************************/
 	scheme.mon = function() {
 		scheme.day = 'Måndag';
@@ -343,9 +372,7 @@ trainerApp.controller('schemeCtrl', function() {
 
 
 	/***********************************************************************************************************
-	**
 	** 											Todays scheme
-	**
 	***********************************************************************************************************/
 
 	scheme.today = new Date();
@@ -364,9 +391,7 @@ trainerApp.controller('schemeCtrl', function() {
 	scheme.dayFunctions[scheme.today.getDay()]();
 
 	/***********************************************************************************************************
-	**
 	** 											Check Exercises
-	**
 	***********************************************************************************************************/
 
 	this.done = false;
