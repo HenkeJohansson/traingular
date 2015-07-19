@@ -350,7 +350,6 @@ trainerApp.controller('schemeCtrl', function() {
 
 	scheme.today = new Date();
 
-
 	scheme.dayFunctions = {
 		1 : scheme.mon,
 		2 : scheme.tue,
@@ -358,11 +357,18 @@ trainerApp.controller('schemeCtrl', function() {
 		4 : scheme.thu,
 		5 : scheme.fri,
 		6 : scheme.sat,
-		7 : scheme.sun
+		0 : scheme.sun
 	};
 
 
 	scheme.dayFunctions[scheme.today.getDay()]();
 
+	/***********************************************************************************************************
+	**
+	** 											Check Exercises
+	**
+	***********************************************************************************************************/
+
+	this.done = false;
 
 });

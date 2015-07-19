@@ -177,6 +177,7 @@ a {
 	position: fixed;
 	top: 20px;
 	right: 10px;
+	z-index: 9;
 	font-size: 32px;
 	color: white;
 	cursor: pointer;
@@ -310,21 +311,33 @@ a {
 			-o-user-select: none;
 			user-select: none;
 			
-			 + label span {
+			+ label span {
 				display: inline-block;
 				width: 90px;
 				height: 90px;
 				background: url(../images/custom_checkbox_sprite2.png) 2px top no-repeat;
 			}
 
-			&:checked + label span {
-				background: url(../images/custom_checkbox_sprite2.png) -90px top no-repeat;
+			&:checked {
+
+				+ label {
+
+					span {
+						background: url(../images/custom_checkbox_sprite2.png) -90px top no-repeat;
+					}
+				}
+
+				+ .exercise {
+					background-color: pink;
+					// De måste nog ligga brevid varandra, måste vara syskon
+				}
 			}
 		}
 	}
 
 	.exercise {
 		display: inline-block;
+		// background-color: white;
 		
 		.exercise-li {
 			list-style: none;
@@ -337,5 +350,9 @@ a {
 				}
 			}
 		}
+	}
+
+	.done {
+		filter: blur(10px);
 	}
 }

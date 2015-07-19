@@ -24,10 +24,10 @@
 	</div><!-- .header-scheme -->
 	<ul class="exercises row" ng-repeat="exercise in scheme.exercises">
 		<div class="check col-xs-3">
-			<input id="exz{{exercise.id}}" class="exercise-check" type="checkbox" ng-model="exercise.done">
+			<input id="exz{{exercise.id}}" class="exercise-check" type="checkbox" ng-model="done">
 			<label for="exz{{exercise.id}}"><span></span></label>
 		</div>
-		<div class="exercise col-xs-9">
+		<div class="exercise col-xs-9" ng-class="{done: done}">
 			<h4>{{exercise.name}}</h4>
 			<li class="exercise-li">
 				<div class="exercise-desc">
