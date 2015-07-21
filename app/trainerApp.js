@@ -179,10 +179,9 @@ trainerApp.controller('routinesCtrl', function() {
 	** 											Add Exercises
 	***********************************************************************************************************/
 
-	routines.add = {};
+	routines.add = [];
 
 	routines.addExercise = function() {
-		alert('Functionen körs iaf');
 		routines.add.push({
 			name: routines.name,
 			muscleGroup: routines.muscleGroup,
@@ -191,8 +190,8 @@ trainerApp.controller('routinesCtrl', function() {
 			desc: routines.desc
 		});
 
-		routines.name = '';
-		routines.desc = '';
+		// Sist tömms fälten
+		// routines.add = '';
 	};
 
 });

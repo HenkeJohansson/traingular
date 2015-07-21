@@ -6,17 +6,27 @@
 
 <div class="add-exercise">
 	<h2 class="text-center">Lägg till Övning</h2>
-	<form id="exercise-form" ng-submit="addExercise()">
-		<label for="name">Namn</label><input name="name" ng-model="routines.add.name" type="text"><br>
-		<label for="muscleGroup">Muskelgrupp</label><select ng-model="routines.add.muscleGroup" name="muscleGroup">
-			<option value="1">Axlar</option>
-			<option value="2">Armar</option>
-			<option value="3">Bröst</option>
-			<option value="4">Mage</option>
-			<option value="5">Rygg</option>
-			<option value="5">Ben</option>
-		</select><br>
-		<label for="reps">Reps</label><select ng-model="routines.add.reps" name="reps">
+	<form id="exercise-form" ng-submit="routines.addExercise()">
+		
+		<label for="name">Namn</label>
+		<input name="name" ng-model="routines.name" type="text">
+		<hr>
+		<br>
+		
+		<label for="muscleGroup">Muskelgrupp</label>
+		<select ng-model="routines.muscleGroup" name="muscleGroup">
+			<option value="axlar">Axlar</option>
+			<option value="armar">Armar</option>
+			<option value="brost">Bröst</option>
+			<option value="mage">Mage</option>
+			<option value="rygg">Rygg</option>
+			<option value="ben">Ben</option>
+		</select>
+		<hr>
+		<br>
+		
+		<label for="reps">Reps</label>
+		<select ng-model="routines.reps" name="reps">
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
@@ -33,21 +43,35 @@
 			<option value="14">14</option>
 			<option value="15">15</option>
 		</select>
-		<label for="sets">Sets</label><select ng-model="routines.add.sets" name="sets">
+		<hr>
+		<br>
+		
+		<label for="sets">Sets</label>
+		<select ng-model="routines.sets" name="sets">
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
 			<option value="4">4</option>
 			<option value="5">5</option>
-		</select><br>
-		<label for="desc">Instruktioner</label><textarea ng-model="routines.add.desc" name="desc">Instruktioner</textarea><br>
+		</select>
+		<hr>
+		<br>
+		
+		<label for="desc">Instruktioner</label>
+		<textarea ng-model="routines.desc" name="desc">Instruktioner</textarea>
+		<br>
+		<hr>
 		<input type="submit" value="Lägg till">
 	</form>
 </div><!-- .add-exercise -->
 
-<div ng-repeat="form in routines.forms">
-	<h4>{{form.name}}</h4>
-	<p>{{form.desc}}</p>
+<div ng-repeat="added in routines.add">
+	<h5>{{added.name}}</h5>
+	<ul class="reps-sets">
+		<li>{{added.reps}} reps</li>
+		<li>{{added.sets}} sets</li>
+	</ul>
+	<p>{{added.desc}}</p>
 </div>
 
 <div class="muscle-groups">
