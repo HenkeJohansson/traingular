@@ -31,6 +31,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/images\/arrow_dwn.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3086,
+		"inputAbbreviatedPath": "\/images\/arrow_dwn.png",
+		"outputAbbreviatedPath": "\/images\/arrow_dwn.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/images\/custom_checkbox_sprite.png": {
 		"fileType": 32768,
 		"ignore": 0,

@@ -11,7 +11,6 @@
 		<label for="name">Namn</label>
 		<input name="name" ng-model="routines.name" type="text">
 		<hr>
-		<br>
 		
 		<label for="muscleGroup">Muskelgrupp</label>
 		<select ng-model="routines.muscleGroup" name="muscleGroup">
@@ -23,7 +22,6 @@
 			<option value="ben">Ben</option>
 		</select>
 		<hr>
-		<br>
 		
 		<label for="reps">Reps</label>
 		<select ng-model="routines.reps" name="reps">
@@ -44,7 +42,6 @@
 			<option value="15">15</option>
 		</select>
 		<hr>
-		<br>
 		
 		<label for="sets">Sets</label>
 		<select ng-model="routines.sets" name="sets">
@@ -55,16 +52,15 @@
 			<option value="5">5</option>
 		</select>
 		<hr>
-		<br>
 		
 		<label for="desc">Instruktioner</label>
 		<textarea ng-model="routines.desc" name="desc">Instruktioner</textarea>
-		<br>
 		<hr>
 		<input type="submit" value="Lägg till">
 	</form>
 </div><!-- .add-exercise -->
 
+<h3>Tillfällig add lista</h3>
 <div ng-repeat="added in routines.add">
 	<h5>{{added.name}}</h5>
 	<ul class="reps-sets">
