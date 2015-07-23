@@ -11,3 +11,7 @@ images/custom_checkbox_sprite.png
 pages/kladd.html
 
 *.codekit
+
+api/includes/pass.php
+
+api/includes/pass.inc.php
