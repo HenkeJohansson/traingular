@@ -7,7 +7,7 @@ $sql = "SELECT * FROM exercieses";
 $result = $db->query($sql);
 
 
-$exercieses = array();
+$muscleGroups = array();
 
 foreach ($result as $row) {
 	$name = $row['name'];
@@ -15,9 +15,23 @@ foreach ($result as $row) {
 	$sets = $row['sets'];
 	$desc = $row['description'];
 	$muscleGroup = $row['muscleGroup'];
+
+	if ( !array_key_exists($muscleGroup, $muscleGroups) ) {
+		$muscleGroups[$muscleGroup] = array();
+	}
+
+	$exercise = array(
+		'name' => $name,
+		'reps' => $reps,
+		'sets' => $sets,
+		'description' => $desc
+	);
+	$muscleGroups[$muscleGroup][] = $exercise;
 }
 
-// $result = array('muscleGroup' => $exercises);
-echo '<pre>';
-var_dump($exercieses);
-echo '</pre>';
+$result = array();
+foreach ($muscleGroups as $key => $value) {
+    $result[] = array('name' => $key, 'exercises' => $value);
+}
+
+echo json_encode($result);
