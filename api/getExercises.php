@@ -24,7 +24,7 @@ foreach ($result as $row) {
 		'name' => $name,
 		'reps' => $reps,
 		'sets' => $sets,
-		'description' => $desc
+		'desc' => $desc
 	);
 	$muscleGroups[$muscleGroup][] = $exercise;
 }

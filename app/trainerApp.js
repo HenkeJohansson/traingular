@@ -6,6 +6,9 @@
 
 var trainerApp = angular.module('trainerApp', ['ngRoute', 'ui.bootstrap']);
 
+/*********************************************************************************
+** 																	       CONFIGS
+*********************************************************************************/
 trainerApp.config(function($routeProvider, $locationProvider) {
 	$routeProvider
 		.when('/', {
@@ -18,6 +21,16 @@ trainerApp.config(function($routeProvider, $locationProvider) {
 			controller   : 'routinesCtrl',
 			controllerAs : 'routines'
 		})
+		.when('/exercises/add', {
+			templateUrl  : 'pages/exercisesAdd.html',
+			controller 	 : 'routinesCtrl',
+			controllerAs : 'routines'
+		})
+		.when('/exercises/all', {
+			templateUrl  : 'pages/exercisesAll.html',
+			controller 	 : 'routinesCtrl',
+			controllerAs : 'routines'
+		})
 		.when('/scheme', {
 			templateUrl  : 'pages/scheme.html',
 			controller   : 'schemeCtrl',
@@ -27,6 +40,38 @@ trainerApp.config(function($routeProvider, $locationProvider) {
 		$locationProvider.html5Mode(true);
 });
 
+
+trainerApp.run(function($rootScope) {
+	/*
+	** One place to change
+	** the root path
+	*/
+	$rootScope.endPoint = 'http://localhost:8888';
+});
+
+
+/*********************************************************************************
+** 																		  SERVICES
+*********************************************************************************/
+trainerApp.service('exercisesService', function($http, $q, $rootScope) {
+	/*
+	** Service for getting exercises
+	** for use in Controllers
+	*/
+	var deferred = $q.defer();
+
+	$http.get($rootScope.endPoint + '/api/getExercises.php').then(function(data) {
+		deferred.resolve(data);
+	});
+
+	this.getExercises = function() {
+		return deferred.promise;
+	};
+});
+
+/*********************************************************************************
+** 																	   CONTROLLERS
+*********************************************************************************/
 trainerApp.controller('mainCtrl', function() {
 	/*
 	** Övergripande Controller för appen
@@ -45,139 +90,50 @@ trainerApp.controller('mainCtrl', function() {
 
 });
 
-trainerApp.controller('homeCtrl', function() {
+
+trainerApp.controller('homeCtrl', function(exercisesService) {
 	/*
 	** Controller till start sidan
 	** i dagsläget behövs inte så mycket av den
 	*/
 	var home = this;
 	this.headline = 'TrainerApp';
+
+	// Gets exercises from the database
+	var promise = exercisesService.getExercises();
+	promise.then(function(data) {
+		home.exercises = data;
+		// console.log(home.exercises);
+	});
 });
 
-trainerApp.controller('routinesCtrl', function() {
+
+trainerApp.controller('routinesCtrl', function(exercisesService) {
 	/*
 	** Ska visa alla övningar som finns inlagda
-	** och ska filtreras per muskelgrupp
+	** och ska filtreras per muskelgrupp.
+	** Ska även kunna lägga till nya övningar
+	** till databasen som sedan blir sökbara.
 	*/
 	var routines = this;
 	this.headline = "Övningar";
 
 	this.oneAtATime = true;
 
-	/***********************************************************************************************************
-	** 											Show All Exercises
-	***********************************************************************************************************/
+	/*************************************************************
+	** 											 Get All Exercises
+	*************************************************************/
+	
+	// Gets exercises from the database
+	var promise = exercisesService.getExercises();
+	promise.then(function(data) {
+		routines.muscleGroups = data.data;
+	});
 
-	this.muscleGroups = [
-
-		{
-			name : 'Axlar',
-			exercises : [
-				{
-					name : 'Shoulder Presses',
-					reps: 10,
-					sets : 3,
-					desc : 'Lorem Ipsum'
-				},
-				{
-					name : 'Arnold Shoulder Presses',
-					reps : 8,
-					sets : 3,
-					desc: 'beskrivning'
-				}
-			]
-		},
-		{
-			name : 'Armar',
-			exercises : [
-				{
-					name : 'Biceps Curls',
-					reps: 10,
-					sets : 3,
-					desc : 'Lorem Ipsum'
-				},
-				{
-					name : 'Triceps pushdowns',
-					reps : 8,
-					sets : 3,
-					desc: 'beskrivning'
-				}
-			]
-		},
-		{
-			name : 'Bröst',
-			exercises : [
-				{
-					name : 'Bench Press',
-					reps: 10,
-					sets : 3,
-					desc : 'Lorem Ipsum'
-				},
-				{
-					name : 'Cable Flyes',
-					reps : 8,
-					sets : 3,
-					desc: 'beskrivning'
-				}
-			]
-		},
-		{
-			name : 'Rygg',
-			exercises : [
-				{
-					name : 'one',
-					reps: 10,
-					sets : 3,
-					desc : 'Lorem Ipsum'
-				},
-				{
-					name : 'two',
-					reps : 8,
-					sets : 3,
-					desc: 'beskrivning'
-				}
-			]
-		},
-		{
-			name : 'Mage',
-			exercises : [
-				{
-					name : 'one',
-					reps: 10,
-					sets : 3,
-					desc : 'Lorem Ipsum'
-				},
-				{
-					name : 'two',
-					reps : 8,
-					sets : 3,
-					desc: 'beskrivning'
-				}
-			]
-		},
-		{
-			name : 'Ben',
-			exercises : [
-				{
-					name : 'one',
-					reps: 10,
-					sets : 3,
-					desc : 'Lorem Ipsum'
-				},
-				{
-					name : 'two',
-					reps : 8,
-					sets : 3,
-					desc: 'beskrivning'
-				}
-			]
-		},
-
-	];
-
-	/***********************************************************************************************************
-	** 											Add Exercises
-	***********************************************************************************************************/
+	
+	/*************************************************************
+	** 												 Add Exercises
+	*************************************************************/
 
 	routines.add = [];
 
@@ -199,16 +155,17 @@ trainerApp.controller('routinesCtrl', function() {
 
 trainerApp.controller('schemeCtrl', function() {
 	/*
-	** Ska automatiskt kolla vilken dag det är och visa
-	** den dagens schema automatiskt. Ska php eller JS kolla?
+	** Kollar automatiskt vilken dag i veckan det är och visar
+	** den dagens schema som standard. Går efter ens kongiuerade
+	** schema som man kan bestämma själv.
 	*/
 	var scheme = this;
 	this.headline = "Schema";
 
 
-	/***********************************************************************************************************
-	** 											Day Functions
-	***********************************************************************************************************/
+	/*************************************************************
+	** 												 Day Functions
+	*************************************************************/
 	scheme.mon = function() {
 		scheme.day = 'Måndag';
 		scheme.muscleGroups = 'Bröst & Axlar';
@@ -370,9 +327,9 @@ trainerApp.controller('schemeCtrl', function() {
 	};
 
 
-	/***********************************************************************************************************
-	** 											Todays scheme
-	***********************************************************************************************************/
+	/*************************************************************
+	** 												 Todays Scheme
+	*************************************************************/
 
 	scheme.today = new Date();
 
@@ -389,9 +346,9 @@ trainerApp.controller('schemeCtrl', function() {
 
 	scheme.dayFunctions[scheme.today.getDay()]();
 
-	/***********************************************************************************************************
-	** 											Check Exercises
-	***********************************************************************************************************/
+	/*************************************************************
+	** 											   Check Exercises
+	*************************************************************/
 
 	this.done = false;
 
