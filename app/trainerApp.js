@@ -56,7 +56,7 @@ trainerApp.run(function($rootScope) {
 trainerApp.service('exercisesService', function($http, $q, $rootScope) {
 	/*
 	** Service for getting exercises
-	** for use in Controllers
+	** to use in Controllers
 	*/
 	var deferred = $q.defer();
 
