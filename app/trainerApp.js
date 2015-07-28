@@ -23,13 +23,13 @@ trainerApp.config(function($routeProvider, $locationProvider) {
 		})
 		.when('/exercises/add', {
 			templateUrl  : 'pages/exercisesAdd.html',
-			controller 	 : 'routinesCtrl',
-			controllerAs : 'routines'
+			controller 	 : 'addRoutinesCtrl',
+			controllerAs : 'addRoutines'
 		})
 		.when('/exercises/all', {
 			templateUrl  : 'pages/exercisesAll.html',
-			controller 	 : 'routinesCtrl',
-			controllerAs : 'routines'
+			controller 	 : 'getRoutinesCtrl',
+			controllerAs : 'getRoutines'
 		})
 		.when('/scheme', {
 			templateUrl  : 'pages/scheme.html',
@@ -58,14 +58,28 @@ trainerApp.service('exercisesService', function($http, $q, $rootScope) {
 	** Service for getting exercises
 	** to use in Controllers
 	*/
-	var deferred = $q.defer();
 
-	$http.get($rootScope.endPoint + '/api/getExercises.php').then(function(data) {
-		deferred.resolve(data);
+	this.getAllExercises = function () {
+		var deferredAll = $q.defer();
+
+		$http.get('api/getAllExercises.php').then(function(data) {
+			deferredAll.resolve(data);
+		});
+
+		return deferredAll.promise;
+	};
+
+	/*
+	** Scheme
+	*/
+	var deferredDay = $q.defer();
+
+	$http.get('api/getDayExercises.php').then(function(data) {
+		deferredDay.resolve(data);
 	});
 
-	this.getExercises = function() {
-		return deferred.promise;
+	this.getDayExercises = function() {
+		return deferredDay.promise;
 	};
 });
 
@@ -100,15 +114,15 @@ trainerApp.controller('homeCtrl', function(exercisesService) {
 	this.headline = 'TrainerApp';
 
 	// Gets exercises from the database
-	var promise = exercisesService.getExercises();
+	var promise = exercisesService.getDayExercises();
 	promise.then(function(data) {
-		home.exercises = data;
-		// console.log(home.exercises);
+		home.exercises = data.data;
+		console.log(home.exercises);
 	});
 });
 
 
-trainerApp.controller('routinesCtrl', function(exercisesService) {
+trainerApp.controller('routinesCtrl', function(exercisesService, $rootScope, $http) {
 	/*
 	** Ska visa alla övningar som finns inlagda
 	** och ska filtreras per muskelgrupp.
@@ -123,33 +137,75 @@ trainerApp.controller('routinesCtrl', function(exercisesService) {
 	/*************************************************************
 	** 											 Get All Exercises
 	*************************************************************/
-	
+
 	// Gets exercises from the database
-	var promise = exercisesService.getExercises();
+	/*var promise = exercisesService.getAllExercises();
 	promise.then(function(data) {
 		routines.muscleGroups = data.data;
-	});
+	});*/
 
-	
+});
+
+trainerApp.controller('getRoutinesCtrl', function(exercisesService) {
+	/*
+	**
+	*/
+
+	var getRoutines = this;
+	this.headline = 'Alla Övningar';
+
+	getRoutines.muscleGroups = [];
+
+	getRoutines.getExercises = function() {
+		// Gets exercises from the database
+		console.log("got", "here");
+		var promise = exercisesService.getAllExercises();
+		promise.then(function(data) {
+			getRoutines.muscleGroups.length = 0;
+			console.log("got here to data:", data.data);
+			for (var i = 0; i < data.data.length; i++) {
+				getRoutines.muscleGroups.push(data.data[i]);
+			}
+		});
+	};
+
+	getRoutines.getExercises();
+});
+
+trainerApp.controller('addRoutinesCtrl', function($http) {
+	/*
+	**
+	*/
+
+	var addRoutines = this;
+	this.headline = 'Lägg till Övning';
+
 	/*************************************************************
 	** 												 Add Exercises
 	*************************************************************/
 
-	routines.add = [];
+	addRoutines.add = [];
 
-	routines.addExercise = function() {
-		routines.add.push({
-			name: routines.name,
-			muscleGroup: routines.muscleGroup,
-			reps: routines.reps,
-			sets: routines.sets,
-			desc: routines.desc
-		});
+	addRoutines.addExercise = function() {
+		var exerciseAdd = {
+			name: addRoutines.name,
+			muscleGroup: addRoutines.muscleGroup,
+			reps: addRoutines.reps,
+			sets: addRoutines.sets,
+			desc: addRoutines.desc
+		};
+		addRoutines.add.push(exerciseAdd);
 
-		// Sist tömms fälten
-		// routines.add = '';
+		$http.post('api/addExercise.php', exerciseAdd).
+			success(function(){
+				// Sist tömms fälten
+				addRoutines.name = '';
+				addRoutines.muscleGroup = '';
+				addRoutines.reps = '';
+				addRoutines.sets = '';
+				addRoutines.desc = '';
+			});
 	};
-
 });
 
 

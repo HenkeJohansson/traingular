@@ -1,7 +1,7 @@
 <!-- exercisesAll.html -->
 
 <header id="header-home">
-	<a href="/"><h1 class="text-center">{{routines.headline}}!</h1></a>
+	<a href="/"><h1 class="text-center">{{getRoutines.headline}}!</h1></a>
 </header>
 
 <div class="btn-group btn-group-justified exercise-sub" role="group" aria-label="...">
@@ -9,7 +9,7 @@
 		<button type="button" class="btn btn-default"><a href="/exercises"><i class="fa fa-cube"></i> Start Exercises</a></button>
 	</div>
 	<div class="btn-group" role="group">
-		<button type="button" class="btn btn-default active"><a href="/exercises/all"><i class="fa fa-list"></i> All Exercises</a></button>
+		<button ng-click="getRoutines.getExercises()" type="button" class="btn btn-default active"><a href="/exercises/all"><i class="fa fa-list"></i> All Exercises</a></button>
 	</div>
 	<div class="btn-group" role="group">
 		<button type="button" class="btn btn-default"><a href="/exercises/add"><i class="fa fa-plus-circle"></i> Add Exercises</a></button>
@@ -18,7 +18,7 @@
 
 <div class="muscle-groups">
 	<accordion close-others="true">
-		<accordion-group is-open="isopen" ng-repeat="muscleGroup in routines.muscleGroups">
+		<accordion-group is-open="isopen" ng-repeat="muscleGroup in getRoutines.muscleGroups">
 			<accordion-heading ng-click="isopen=!isopen">
 				<div class="panel-header"><h4>{{muscleGroup.name}}</h4></div>
 			</accordion-heading>
