@@ -53,10 +53,12 @@ trainerApp.run(function($rootScope) {
 /*********************************************************************************
 ** 																		  SERVICES
 *********************************************************************************/
-trainerApp.service('exercisesService', function($http, $q, $rootScope) {
+trainerApp.service('exercisesService', function($http, $q) {
 	/*
 	** Service for getting exercises
-	** to use in Controllers
+	** to use in Controllers or
+	** add exercises to database
+	** maybe even update...
 	*/
 
 	this.getAllExercises = function () {
@@ -69,16 +71,15 @@ trainerApp.service('exercisesService', function($http, $q, $rootScope) {
 		return deferredAll.promise;
 	};
 
-	/*
-	** Scheme
-	*/
-	var deferredDay = $q.defer();
-
-	$http.get('api/getDayExercises.php').then(function(data) {
-		deferredDay.resolve(data);
-	});
-
+	
 	this.getDayExercises = function() {
+		var deferredDay = $q.defer();
+		var day = 1;
+
+		$http.get('api/getDayExercises.php', day).then(function(data) {
+			deferredDay.resolve(data);
+		});
+
 		return deferredDay.promise;
 	};
 });
@@ -113,12 +114,22 @@ trainerApp.controller('homeCtrl', function(exercisesService) {
 	var home = this;
 	this.headline = 'TrainerApp';
 
-	// Gets exercises from the database
-	var promise = exercisesService.getDayExercises();
-	promise.then(function(data) {
-		home.exercises = data.data;
-		console.log(home.exercises);
-	});
+	home.muscleGroups = [];
+
+	home.getDayExercises = function() {
+		// Gets exercises from the database
+		console.log("getDayExercises function:");
+		var promise = exercisesService.getDayExercises();
+		promise.then(function(data) {
+			home.muscleGroups.length = 0;
+			console.log("getDayExercises data:", data.data);
+			for (var i = 0; i < data.data.length; i++) {
+				home.muscleGroups.push(data.data[i]);
+			}
+		});
+	};
+
+	home.getDayExercises();
 });
 
 
