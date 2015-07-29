@@ -3,7 +3,9 @@
 include 'includes/connect.inc.php';
 include 'includes/functions.inc.php';
 
-$sql = "SELECT * FROM exercieses INNER JOIN day_exercises ON exercieses.id = day_exercises.exercise_id";
+$day = $data['day'];
+
+$sql = "SELECT * FROM day_exercieses WHERE day = $day INNER JOIN exercises ON day_exercieses.exercise_id = exercises.id";
 $result = $db->query($sql);
 
 $groups = getAllExercises($result, 'day');
