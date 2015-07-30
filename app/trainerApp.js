@@ -76,7 +76,7 @@ trainerApp.service('exercisesService', function($http, $q) {
 		var deferredDay = $q.defer();
 		var day = 1;
 
-		$http.get('api/getDayExercises.php', day).then(function(data) {
+		$http.get('api/getDayExercises.php?day='+day).then(function(data) {
 			deferredDay.resolve(data);
 		});
 
@@ -130,6 +130,7 @@ trainerApp.controller('homeCtrl', function(exercisesService) {
 	};
 
 	home.getDayExercises();
+
 });
 
 

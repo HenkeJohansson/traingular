@@ -3,9 +3,11 @@
 include 'includes/connect.inc.php';
 include 'includes/functions.inc.php';
 
-$day = $data['day'];
+$day = $_GET['day'];
 
-$sql = "SELECT * FROM day_exercieses WHERE day = $day INNER JOIN exercises ON day_exercieses.exercise_id = exercises.id";
+$sql = "SELECT * FROM day_exercises
+		INNER JOIN exercises ON day_exercises.exercise_id = exercises.id
+        WHERE day = $day";
 $result = $db->query($sql);
 
 $groups = getAllExercises($result, 'day');
