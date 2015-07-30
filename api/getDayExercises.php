@@ -7,9 +7,10 @@ $day = $_GET['day'];
 
 $sql = "SELECT * FROM day_exercises
 		INNER JOIN exercises ON day_exercises.exercise_id = exercises.id
-        WHERE day = $day";
+        WHERE day = '$day'";
 $result = $db->query($sql);
 
 $groups = getAllExercises($result, 'day');
 
-echo json_encode($groups);
+$exercises = $groups[$day];
+echo json_encode($exercises);

@@ -26,3 +26,18 @@
 </div>
 
 <a href="/api/getExercises.php">getExercises</a>
+
+<ul class="exercises row" ng-repeat="exercise in home.muscleGroups" style="width: 90%; margin: 0 auto;">
+	<div class="exercise col-xs-9" ng-class="{done: done}">
+		<h4>{{exercise.name}}</h4>
+		<li class="exercise-li">
+			<div class="exercise-desc">
+				<ul class="reps-sets">
+					<li>{{exercise.reps}} reps</li>
+					<li>{{exercise.sets}} sets</li>
+				</ul><!-- .reps-sets -->
+				<p>{{exercise.desc}}</p>
+			</div><!-- .exercise-desc -->
+		</li><!-- .exercise-li -->
+	</div><!-- .exercise -->
+</ul><!-- .exercises -->
