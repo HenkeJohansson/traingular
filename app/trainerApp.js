@@ -221,7 +221,7 @@ trainerApp.controller('addRoutinesCtrl', function($http) {
 });
 
 
-trainerApp.controller('schemeCtrl', function() {
+trainerApp.controller('schemeCtrl', function(exercisesService) {
 	/*
 	** Kollar automatiskt vilken dag i veckan det är och visar
 	** den dagens schema som standard. Går efter ens kongiuerade
@@ -291,6 +291,23 @@ trainerApp.controller('schemeCtrl', function() {
 		scheme.day = 'Tisdag';
 		scheme.muscleGroups = 'Vilodag';
 		scheme.exercises = [];
+
+		scheme.exercises = [];
+
+		scheme.getDayExercises = function() {
+			// Gets exercises from the database
+			console.log("getDayExercises function:");
+			var promise = exercisesService.getDayExercises();
+			promise.then(function(data) {
+				scheme.exercises.length = 0;
+				console.log("getDayExercises data:", data.data);
+				for (var i = 0; i < data.data.length; i++) {
+					scheme.exercises.push(data.data[i]);
+				}
+			});
+		};
+
+		scheme.getDayExercises();
 	};
 
 	scheme.wed = function() {
