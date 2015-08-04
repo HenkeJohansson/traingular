@@ -9,8 +9,14 @@
 	box-sizing: border-box;
 }
 
+html, body {
+
+	min-height: 100%;
+}
+
 body {
-	background-color: #0C8D64;
+	// background-color: #0C8D64;
+	@include linear-gradient($skyBlue 0%, $midnightPurple 100%);
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font-weight: 300;
 }
@@ -42,7 +48,6 @@ a {
 		outline: none;
 	}
 }
-
 
 /*******************************************************************************************
 **
@@ -127,7 +132,7 @@ a {
 #menu {
 	width: 80vw;
 	height: 100vh;
-	background-color: rgba(255,255,255, .8);
+	background-color: rgba(255,255,255, .6);
 	position: fixed;
 	top: 0;
 	
@@ -178,7 +183,7 @@ a {
 	right: 10px;
 	z-index: 9;
 	font-size: 32px;
-	color: white;
+	color: black;
 	cursor: pointer;
 	width: 30px;
 	-webkit-user-select: none;
@@ -213,21 +218,25 @@ a {
 ** 										PAGES
 **
 *******************************************************************************************/
-
-#header-home  {
-	height: 30vh;
-	background-color: pink;
+.header {
+	height: 40vh;
 	
 	h1 {
 		margin: 0;
-		line-height: 30vh;
+		line-height: 40vh;
+		color: white;
 	}
 }
-
 
 /*******************************************************************************************
 ** 										HOME
 *******************************************************************************************/
+
+#header-home  {
+	background: linear-gradient(top, $skyBlueOpac 0%, $midnightPurpleOpac 100%), url(../images/rocky1.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 
 #front-nav {
 	width: 100%;
@@ -241,6 +250,7 @@ a {
 		li {
 			background-color: $transparentWhite;
 			height: 100px;
+			margin-bottom: 1px;
 
 			h3 {
 				text-align: center;
@@ -257,6 +267,11 @@ a {
 /*******************************************************************************************
 ** 										Exercises
 *******************************************************************************************/
+#header-exercises  {
+	background: linear-gradient(top, $skyBlueOpac 0%, $midnightPurpleOpac 100%), url(../images/rocky2.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 
 .exercise-sub {
 	
@@ -274,7 +289,7 @@ a {
 
 	form#exercise-form {
 		width: 90%;
-		margin: 0 auto;
+		margin: 30px auto;
 		
 		label {
 			width: 48%;
@@ -336,6 +351,11 @@ a {
 /*******************************************************************************************
 ** 										SCHEMA
 *******************************************************************************************/
+#header-scheme  {
+	background: linear-gradient(top, $skyBlueOpac 0%, $midnightPurpleOpac 100%), url(../images/rocky3.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
 
 .btns-days {
 	position: absolute;
@@ -367,9 +387,8 @@ a {
 
 	.check {
 		display: inline-block;
-		// width: 100px;
-		height: 100px;
 		position: relative;
+		margin-top: 10px;
 		-webkit-user-select: none;
 		-moz-user-select: none;
 		-ms-user-select: none;
@@ -386,9 +405,9 @@ a {
 			
 			+ label span {
 				display: inline-block;
-				width: 90px;
-				height: 90px;
-				background: url(../images/custom_checkbox_sprite2.png) 2px top no-repeat;
+				width: 45px;
+				height: 45px;
+				background: url(../images/custom_checkbox_sprite_small.png) 2px top no-repeat;
 			}
 
 			&:checked {
@@ -396,32 +415,36 @@ a {
 				+ label {
 
 					span {
-						background: url(../images/custom_checkbox_sprite2.png) -90px top no-repeat;
+						background: url(../images/custom_checkbox_sprite_small.png) -44px top no-repeat;
 					}
 				}
 
 				+ .exercise {
-					background-color: pink;
 					// De måste nog ligga brevid varandra, måste vara syskon
 				}
 			}
 		}
 	}
 
-	.exercise {
-		display: inline-block;
-		
-		.exercise-nfo {
-			list-style: none;
-			display: block;
+	.exercises {
+		margin-bottom: 20px;
 
-			.exercise-desc {
-				//..
+		.exercise {
+			// display: inline-block;
+			
+			.exercise-nfo {
+				list-style: none;
+				display: block;
 
 				.reps-sets {
 					list-style: none;
 				}
 			}
+			
+		}
+		
+		.exercise-desc {
+			border-bottom: 1px solid white;
 		}
 	}
 

@@ -1,6 +1,6 @@
 <!-- scheme.html -->
 
-<header id="header-home">
+<header id="header-scheme" class="header">
 	<a href="/"><h1 class="text-center">{{scheme.headline}}!</h1></a>
 </header>
 
@@ -22,22 +22,22 @@
 		<h1 class="text-center day-headline">{{scheme.day}}</h1>
 		<h2 class="text-center muscle-groups-headline">{{scheme.muscleGroups}}</h2>
 	</div><!-- .header-scheme -->
-	<ul class="exercises row" ng-repeat="exercise in scheme.dayExercises">
-		<div class="check col-xs-3">
+	<div class="exercises row" ng-repeat="exercise in scheme.dayExercises">
+		<div class="check col-xs-2">
 			<input id="exz{{exercise.id}}" class="exercise-check" type="checkbox" ng-model="done">
 			<label for="exz{{exercise.id}}"><span></span></label>
 		</div>
-		<div class="exercise col-xs-9" ng-class="{done: done}">
+		<div class="exercise col-xs-10" ng-class="{done: done}">
 			<h4>{{exercise.name}}</h4>
-			<li class="exercise-nfo">
-				<div class="exercise-desc">
-					<ul class="reps-sets">
-						<li>{{exercise.reps}} reps</li>
-						<li>{{exercise.sets}} sets</li>
-					</ul>
-					<p>{{exercise.desc}}</p>
-				</div><!-- .exercise-desc -->
-			</li><!-- .exercise-nfo -->
+			<div class="exercise-nfo">
+				<ul class="reps-sets">
+					<li>{{exercise.reps}} reps</li>
+					<li>{{exercise.sets}} sets</li>
+				</ul>
+			</div><!-- .exercise-nfo -->
 		</div><!-- .exercise -->
-	</ul><!-- .exercises -->
+		<div class="exercise-desc col-xs-12" ng-class="{done: done}">
+			<p>{{exercise.desc}}</p>
+		</div><!-- .desc .col-xs-12 -->
+	</div><!-- .exercises -->
 </div><!-- .scheme -->

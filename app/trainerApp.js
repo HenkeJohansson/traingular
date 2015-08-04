@@ -118,11 +118,9 @@ trainerApp.controller('homeCtrl', function(exercisesService) {
 
 	home.getDayExercises = function() {
 		// Gets exercises from the database
-		console.log("getDayExercises function:");
 		var promise = exercisesService.getDayExercises();
 		promise.then(function(data) {
 			home.muscleGroups.length = 0;
-			console.log("getDayExercises data:", data.data);
 			for (var i = 0; i < data.data.length; i++) {
 				home.muscleGroups.push(data.data[i]);
 			}
@@ -145,22 +143,12 @@ trainerApp.controller('routinesCtrl', function(exercisesService, $rootScope, $ht
 	this.headline = "Övningar";
 
 	this.oneAtATime = true;
-
-	/*************************************************************
-	** 											 Get All Exercises
-	*************************************************************/
-
-	// Gets exercises from the database
-	/*var promise = exercisesService.getAllExercises();
-	promise.then(function(data) {
-		routines.muscleGroups = data.data;
-	});*/
-
 });
+
 
 trainerApp.controller('getRoutinesCtrl', function(exercisesService) {
 	/*
-	**
+	** Gets all Exercises
 	*/
 
 	var getRoutines = this;
@@ -170,11 +158,9 @@ trainerApp.controller('getRoutinesCtrl', function(exercisesService) {
 
 	getRoutines.getExercises = function() {
 		// Gets exercises from the database
-		console.log("got", "here");
 		var promise = exercisesService.getAllExercises();
 		promise.then(function(data) {
 			getRoutines.muscleGroups.length = 0;
-			console.log("got here to data:", data.data);
 			for (var i = 0; i < data.data.length; i++) {
 				getRoutines.muscleGroups.push(data.data[i]);
 			}
@@ -186,11 +172,11 @@ trainerApp.controller('getRoutinesCtrl', function(exercisesService) {
 
 trainerApp.controller('addRoutinesCtrl', function($http) {
 	/*
-	**
+	** Adds exercise to database
 	*/
 
 	var addRoutines = this;
-	this.headline = 'Lägg till Övning';
+	this.headline = 'Lägg till';
 
 	/*************************************************************
 	** 												 Add Exercises
@@ -235,11 +221,9 @@ trainerApp.controller('schemeCtrl', function(exercisesService) {
 
 	scheme.getDayExercises = function() {
 		// Gets exercises from the database
-		console.log("getDayExercises function:");
 		var promise = exercisesService.getDayExercises();
 		promise.then(function(response) {
 			scheme.exercises = response.data;
-			console.log("getDayExercises data:", response.data);
 			scheme.dayFunctions[scheme.today.getDay()]();
 		});
 	};
