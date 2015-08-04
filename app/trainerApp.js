@@ -231,184 +231,65 @@ trainerApp.controller('schemeCtrl', function(exercisesService) {
 	this.headline = "Schema";
 
 
+	scheme.exercises = [];
+
+	scheme.getDayExercises = function() {
+		// Gets exercises from the database
+		console.log("getDayExercises function:");
+		var promise = exercisesService.getDayExercises();
+		promise.then(function(response) {
+			scheme.exercises = response.data;
+			console.log("getDayExercises data:", response.data);
+			scheme.dayFunctions[scheme.today.getDay()]();
+		});
+	};
+
+	scheme.getDayExercises();
+
 	/*************************************************************
 	** 												 Day Functions
 	*************************************************************/
 	scheme.mon = function() {
 		scheme.day = 'Måndag';
 		scheme.muscleGroups = 'Bröst & Axlar';
-		
-		scheme.exercises = [
-
-
-			{
-				id 	 : 10,
-				name : 'Shoulder Presses',
-				reps: 10,
-				sets : 3,
-				desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore dolores, quos odit consequuntur nam facere consectetur maiores.'
-			},
-			{
-				id 	 : 11,
-				name : 'Arnold Shoulder Presses',
-				reps : 8,
-				sets : 3,
-				desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis quas libero voluptatum magnam tempora, aliquam, aliquid!'
-			},
-			{
-				id 	 : 12,
-				name : 'Biceps Curls',
-				reps: 10,
-				sets : 3,
-				desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-			},
-			{
-				id 	 : 13,
-				name : 'Triceps pushdowns',
-				reps : 8,
-				sets : 3,
-				desc: 'Lorem ipsum dolor sit.'
-			},
-			{
-				id 	 : 14,
-				name : 'Bench Press',
-				reps: 10,
-				sets : 3,
-				desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa ullam, ipsam.'
-			},
-			{
-				id 	 : 15,
-				name : 'Cable Flyes',
-				reps : 8,
-				sets : 3,
-				desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-			},
-
-		];
+		scheme.dayExercises = scheme.exercises[0];
 	};
 
 	scheme.tue = function() {
 		scheme.day = 'Tisdag';
 		scheme.muscleGroups = 'Vilodag';
-		scheme.exercises = [];
+		scheme.dayExercises = scheme.exercises[0];
 
-		scheme.exercises = [];
-
-		scheme.getDayExercises = function() {
-			// Gets exercises from the database
-			console.log("getDayExercises function:");
-			var promise = exercisesService.getDayExercises();
-			promise.then(function(data) {
-				scheme.exercises.length = 0;
-				console.log("getDayExercises data:", data.data);
-				for (var i = 0; i < data.data.length; i++) {
-					scheme.exercises.push(data.data[i]);
-				}
-			});
-		};
-
-		scheme.getDayExercises();
 	};
 
 	scheme.wed = function() {
 		scheme.day = 'Onsdag';
 		scheme.muscleGroups = 'Rygg & Ben';
-		
-		scheme.exercises = [
-
-
-			{
-				id 	 : 6,
-				name : 'Squats',
-				reps: 10,
-				sets : 3,
-				desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, quibusdam.'
-			},
-			{
-				id 	 : 7,
-				name : 'Marklyft',
-				reps : 8,
-				sets : 3,
-				desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, perspiciatis officiis ad. Alias, porro tempora.'
-			},
-			{
-				id 	 : 8,
-				name : 'Låg rodd',
-				reps: 10,
-				sets : 3,
-				desc : 'Lorem ipsum dolor sit amet, consectetur adipisicing.'
-			},
-			{
-				id 	 : 9,
-				name : 'Plankan',
-				reps : 8,
-				sets : 3,
-				desc: 'Lorem ipsum dolor sit amet.'
-			},
-		];
+		scheme.dayExercises = scheme.exercises[2];
 	};
 
 	scheme.thu = function() {
 		scheme.day = 'Torsdag';
 		scheme.muscleGroups = 'Vilodag';
-		scheme.exercises = [];
+		scheme.dayExercises = scheme.exercises[3];
 	};
 
 	scheme.fri = function() {
 		scheme.day = 'Fredag';
 		scheme.muscleGroups = 'Mage & Armar';
-		
-		scheme.exercises = [
-
-
-			{
-				id 	 : 1,
-				name : 'Situps',
-				reps: 10,
-				sets : 3,
-				desc : 'Lorem ipsum dolor sit.'
-			},
-			{
-				id 	 : 2,
-				name : 'Spider Man Armhävningar',
-				reps : 8,
-				sets : 3,
-				desc: 'Lorem ipsum dolor sit amet.'
-			},
-			{
-				id 	 : 3,
-				name : 'Biceps Curls',
-				reps: 10,
-				sets : 3,
-				desc : 'Lorem ipsum dolor sit.'
-			},
-			{
-				id 	 : 4,
-				name : 'Triceps pushdowns',
-				reps : 8,
-				sets : 3,
-				desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing.'
-			},
-			{
-				id 	 : 5,
-				name : 'situps 2',
-				reps: 10,
-				sets : 3,
-				desc : 'Lorem ipsum dolor sit amet, consectetur.'
-			},
-		];
+		scheme.dayExercises = scheme.exercises[4];
 	};
 
 	scheme.sat = function() {
 		scheme.day = 'Lördag';
 		scheme.muscleGroups = 'Springa';
-		scheme.exercises = [];
+		scheme.dayExercises = scheme.exercises[5];
 	};
 
 	scheme.sun = function() {
 		scheme.day = 'Söndag';
 		scheme.muscleGroups = 'Netflix';
-		scheme.exercises = [];
+		scheme.dayExercises = scheme.exercises[6];
 	};
 
 

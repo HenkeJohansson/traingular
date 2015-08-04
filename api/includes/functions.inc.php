@@ -4,6 +4,7 @@ function getAllExercises($result, $groupName) {
 	$groups = array();
 
 	foreach ($result as $row) {
+		$id = $row['id'];
 		$name = $row['name'];
 		$reps = $row['reps'];
 		$sets = $row['sets'];
@@ -15,6 +16,7 @@ function getAllExercises($result, $groupName) {
 		}
 
 		$exercise = array(
+			'id'   => $id,
 			'name' => $name,
 			'reps' => $reps,
 			'sets' => $sets,

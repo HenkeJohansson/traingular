@@ -10,7 +10,7 @@ $sets = $data['sets'];
 $desc = $data['desc'];
 $muscleGroup = htmlspecialchars($data['muscleGroup'],ENT_QUOTES);
 
-$sql = "INSERT INTO exercieses (name, reps, sets, description, muscleGroup) VALUES (?,?,?,?,?)";
+$sql = "INSERT INTO exercises (name, reps, sets, description, muscleGroup) VALUES (?,?,?,?,?)";
 
 try {
 	$statement = $db->prepare($sql);

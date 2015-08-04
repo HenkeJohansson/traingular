@@ -15,7 +15,6 @@ body {
 	font-weight: 300;
 }
 
-
 #view {
 	// margin-top: 130px;
 	padding: 0;
@@ -359,7 +358,7 @@ a {
 
 .scheme {
 	background-color: $transparentWhite;
-	padding: 20px 0 0 0;
+	// padding: 20px 0 0 0;
 	margin-top: 34px;
 
 	.week-day {
@@ -368,7 +367,7 @@ a {
 
 	.check {
 		display: inline-block;
-		width: 100px;
+		// width: 100px;
 		height: 100px;
 		position: relative;
 		-webkit-user-select: none;
@@ -411,10 +410,10 @@ a {
 
 	.exercise {
 		display: inline-block;
-		// background-color: white;
 		
-		.exercise-li {
+		.exercise-nfo {
 			list-style: none;
+			display: block;
 
 			.exercise-desc {
 				//..

@@ -3,7 +3,7 @@
 include 'includes/connect.inc.php';
 include 'includes/functions.inc.php';
 
-$sql = "SELECT * FROM exercieses";
+$sql = "SELECT * FROM exercises";
 $result = $db->query($sql);
 
 $groups = getAllExercises($result, 'muscleGroup');
