@@ -4,7 +4,7 @@
 ** Version: 1.0
 */
 
-var trainerApp = angular.module('trainerApp', ['ngRoute', 'ui.bootstrap']);
+var trainerApp = angular.module('trainerApp', ['ngRoute', 'ngAnimate', 'ui.bootstrap']);
 
 /*********************************************************************************
 ** 																	       CONFIGS
@@ -14,27 +14,27 @@ trainerApp.config(function($routeProvider, $locationProvider) {
 		.when('/', {
 			templateUrl  : 'pages/home.html',
 			controller 	 : 'homeCtrl',
-			controllerAs : 'home'
+			controllerAs : 'vm'
 		})
 		.when('/exercises', {
 			templateUrl  : 'pages/exercises.html',
 			controller   : 'routinesCtrl',
-			controllerAs : 'routines'
+			controllerAs : 'vm'
 		})
 		.when('/exercises/add', {
 			templateUrl  : 'pages/exercisesAdd.html',
 			controller 	 : 'addRoutinesCtrl',
-			controllerAs : 'addRoutines'
+			controllerAs : 'vm'
 		})
 		.when('/exercises/all', {
 			templateUrl  : 'pages/exercisesAll.html',
 			controller 	 : 'getRoutinesCtrl',
-			controllerAs : 'getRoutines'
+			controllerAs : 'vm'
 		})
 		.when('/scheme', {
 			templateUrl  : 'pages/scheme.html',
 			controller   : 'schemeCtrl',
-			controllerAs : 'scheme'
+			controllerAs : 'vm'
 		});
 
 		$locationProvider.html5Mode(true);
@@ -113,6 +113,7 @@ trainerApp.controller('homeCtrl', function(exercisesService) {
 	*/
 	var home = this;
 	this.headline = 'TrainerApp';
+	this.pageClass= 'homePage';
 
 	home.muscleGroups = [];
 
@@ -141,6 +142,7 @@ trainerApp.controller('routinesCtrl', function(exercisesService, $rootScope, $ht
 	*/
 	var routines = this;
 	this.headline = "Övningar";
+	this.pageClass= 'routinesPage';
 
 	this.oneAtATime = true;
 });
@@ -153,6 +155,7 @@ trainerApp.controller('getRoutinesCtrl', function(exercisesService) {
 
 	var getRoutines = this;
 	this.headline = 'Alla Övningar';
+	this.pageClass= 'allRoutinesPage';
 
 	getRoutines.muscleGroups = [];
 
@@ -177,6 +180,7 @@ trainerApp.controller('addRoutinesCtrl', function($http) {
 
 	var addRoutines = this;
 	this.headline = 'Lägg till';
+	this.pageClass= 'addRoutinesPage';
 
 	/*************************************************************
 	** 												 Add Exercises
@@ -215,11 +219,12 @@ trainerApp.controller('schemeCtrl', function(exercisesService) {
 	*/
 	var scheme = this;
 	this.headline = "Schema";
+	this.pageClass = 'schemePage';
 
 
 	scheme.exercises = [];
 
-	scheme.getDayExercises = function() {
+	this.getDayExercises = function() {
 		// Gets exercises from the database
 		var promise = exercisesService.getDayExercises();
 		promise.then(function(response) {

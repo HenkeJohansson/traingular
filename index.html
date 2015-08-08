@@ -15,6 +15,7 @@
 	<!-- Angularjs -->
 	<script src="res/angular_1.4.2.min.js"></script>
 	<script src="res/angular-route_1.4.2.min.js"></script>
+	<script src="res/angular-animate_1.4.2.min.js"></script>
 	<script src="res/ui-bootstrap-tpls-0.13.0.min.js"></script>
 	<script src="app/trainerApp.js"></script>
 
@@ -27,7 +28,7 @@
 	
 		<div id="content" ng-class="{opened: main.isOpened, closed: !main.isOpened}">
 
-			<div ng-view id="view">
+			<div ng-view id="view" class="page {{vm.pageClass}}">
 				<!-- Main content with injected views -->
 			</div><!-- #view -->
 		</div><!-- #content -->

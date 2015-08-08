@@ -1,28 +1,28 @@
 <!-- scheme.html -->
 
 <header id="header-scheme" class="header">
-	<a href="/"><h1 class="text-center">{{scheme.headline}}!</h1></a>
+	<a href="/"><h1 class="text-center">{{vm.headline}}!</h1></a>
 </header>
 
 <form>
 	<div class="btn-group btns-days">
-		<label class="btn btn-primary" ng-click="scheme.mon()" ng-model="radios.selectedDay" btn-radio="'Måndag'">Måndag</label>
-		<label class="btn btn-primary" ng-click="scheme.tue()" ng-model="radios.selectedDay" btn-radio="'Tisdag'">Tisdag</label>
-		<label class="btn btn-primary" ng-click="scheme.wed()" ng-model="radios.selectedDay" btn-radio="'Onsdag'">Onsdag</label>
-		<label class="btn btn-primary" ng-click="scheme.thu()" ng-model="radios.selectedDay" btn-radio="'Torsdag'">Torsdag</label>
-		<label class="btn btn-primary" ng-click="scheme.fri()" ng-model="radios.selectedDay" btn-radio="'Fredag'">Fredag</label>
-		<label class="btn btn-primary" ng-click="scheme.sat()" ng-model="radios.selectedDay" btn-radio="'Lördag'">Lördag</label>
-		<label class="btn btn-primary" ng-click="scheme.sun()" ng-model="radios.selectedDay" btn-radio="'Söndag'">Söndag</label>
+		<label class="btn btn-primary" ng-click="vm.mon()" ng-model="radios.selectedDay" btn-radio="'Måndag'">Måndag</label>
+		<label class="btn btn-primary" ng-click="vm.tue()" ng-model="radios.selectedDay" btn-radio="'Tisdag'">Tisdag</label>
+		<label class="btn btn-primary" ng-click="vm.wed()" ng-model="radios.selectedDay" btn-radio="'Onsdag'">Onsdag</label>
+		<label class="btn btn-primary" ng-click="vm.thu()" ng-model="radios.selectedDay" btn-radio="'Torsdag'">Torsdag</label>
+		<label class="btn btn-primary" ng-click="vm.fri()" ng-model="radios.selectedDay" btn-radio="'Fredag'">Fredag</label>
+		<label class="btn btn-primary" ng-click="vm.sat()" ng-model="radios.selectedDay" btn-radio="'Lördag'">Lördag</label>
+		<label class="btn btn-primary" ng-click="vm.sun()" ng-model="radios.selectedDay" btn-radio="'Söndag'">Söndag</label>
 	</div>
 </form>
 
 
 <div class="scheme">
 	<div class="header-scheme">
-		<h1 class="text-center day-headline">{{scheme.day}}</h1>
-		<h2 class="text-center muscle-groups-headline">{{scheme.muscleGroups}}</h2>
+		<h1 class="text-center day-headline">{{vm.day}}</h1>
+		<h2 class="text-center muscle-groups-headline">{{vm.muscleGroups}}</h2>
 	</div><!-- .header-scheme -->
-	<div class="exercises row" ng-repeat="exercise in scheme.dayExercises">
+	<div class="exercises row" ng-repeat="exercise in vm.dayExercises">
 		<div class="check col-xs-2">
 			<input id="exz{{exercise.id}}" class="exercise-check" type="checkbox" ng-model="done">
 			<label for="exz{{exercise.id}}"><span></span></label>

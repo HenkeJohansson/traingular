@@ -2,7 +2,7 @@
 
 
 <header id="header-home" class="header">
-	<h1 class="text-center">{{home.headline}}!</h1>
+	<h1 class="text-center">{{vm.headline}}!</h1>
 </header>
 
 <div class="">
@@ -27,7 +27,7 @@
 
 <a href="/api/getExercises.php">getExercises</a>
 
-<ul class="exercises row" ng-repeat="exercise in home.muscleGroups" style="width: 90%; margin: 0 auto;">
+<ul class="exercises row" ng-repeat="exercise in vm.muscleGroups" style="width: 90%; margin: 0 auto;">
 	<div class="exercise col-xs-9" ng-class="{done: done}">
 		<h4>{{exercise.name}}</h4>
 		<li class="exercise-li">

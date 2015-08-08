@@ -107,6 +107,50 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/images\/custom_checkbox_sprite_small.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6648,
+		"inputAbbreviatedPath": "\/images\/custom_checkbox_sprite_small.png",
+		"outputAbbreviatedPath": "\/images\/custom_checkbox_sprite_small.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/rocky1.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 427375,
+		"inputAbbreviatedPath": "\/images\/rocky1.jpg",
+		"outputAbbreviatedPath": "\/images\/rocky1.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/Rocky2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 89735,
+		"inputAbbreviatedPath": "\/images\/Rocky2.jpg",
+		"outputAbbreviatedPath": "\/images\/Rocky2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/images\/Rocky3.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 74063,
+		"inputAbbreviatedPath": "\/images\/Rocky3.jpg",
+		"outputAbbreviatedPath": "\/images\/Rocky3.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/index.html": {
 		"fileType": 8192,
 		"ignore": 1,
@@ -169,6 +213,17 @@
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
+		},
+	"\/res\/angular-animate_1.4.2.min.js": {
+		"fileType": 64,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/res\/angular-animate_1.4.2.min.js",
+		"outputAbbreviatedPath": "\/res\/min\/angular-animate_1.4.2.min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
 		},
 	"\/res\/angular-route_1.4.2.min.js": {
 		"fileType": 64,

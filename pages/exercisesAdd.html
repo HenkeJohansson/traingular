@@ -1,7 +1,7 @@
 <!-- exercisesAdd.html -->
 
 <header id="header-exercises" class="header">
-	<a href="/"><h1 class="text-center">{{addRoutines.headline}}!</h1></a>
+	<a href="/"><h1 class="text-center">{{vm.headline}}!</h1></a>
 </header>
 
 <div class="btn-group btn-group-justified exercise-sub" role="group" aria-label="...">
@@ -17,14 +17,14 @@
 </div>
 
 <div class="add-exercise">
-	<form id="exercise-form" ng-submit="addRoutines.addExercise()">
+	<form id="exercise-form" ng-submit="vm.addExercise()">
 		
 		<label for="name">Namn</label>
-		<input name="name" ng-model="addRoutines.name" type="text">
+		<input name="name" ng-model="vm.name" type="text">
 		<hr>
 		
 		<label for="muscleGroup">Muskelgrupp</label>
-		<select ng-model="addRoutines.muscleGroup" name="muscleGroup">
+		<select ng-model="vm.muscleGroup" name="muscleGroup">
 			<option value="Axlar">Axlar</option>
 			<option value="Armar">Armar</option>
 			<option value="Bröst">Bröst</option>
@@ -35,7 +35,7 @@
 		<hr>
 		
 		<label for="reps">Reps</label>
-		<select ng-model="addRoutines.reps" name="reps">
+		<select ng-model="vm.reps" name="reps">
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
@@ -55,7 +55,7 @@
 		<hr>
 		
 		<label for="sets">Sets</label>
-		<select ng-model="addRoutines.sets" name="sets">
+		<select ng-model="vm.sets" name="sets">
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
@@ -65,14 +65,14 @@
 		<hr>
 		
 		<label for="desc">Instruktioner</label>
-		<textarea ng-model="addRoutines.desc" name="desc">Instruktioner</textarea>
+		<textarea ng-model="vm.desc" name="desc">Instruktioner</textarea>
 		<hr>
 		<input type="submit" value="Lägg till">
 	</form>
 </div><!-- .add-exercise -->
 
 <h3 class="text-center">Senast tillagda</h3>
-<div ng-repeat="added in addRoutines.add">
+<div ng-repeat="added in vm.add">
 	<h5>{{added.name}}</h5>
 	<ul class="reps-sets">
 		<li>{{added.reps}} reps</li>

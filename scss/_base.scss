@@ -22,7 +22,7 @@ body {
 }
 
 #view {
-	// margin-top: 130px;
+	width: 100%;
 	padding: 0;
 }
 
@@ -47,6 +47,66 @@ a {
 	&:focus {
 		outline: none;
 	}
+}
+
+
+/*******************************************************************************************
+**
+** 										Animations
+**
+*******************************************************************************************/
+
+.page {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	// overflow: scroll;
+}
+
+.ng-enter { z-index: 8888; }
+.ng-leave  { z-index: 9999; }
+
+.homePage.ng-enter {
+	animation: slideInRight .5s both ease-in;
+	z-index: 999;
+}
+.homePage.ng-leave {
+	animation: slideOutLeft .5s both ease-in;
+	z-index: 888;
+}
+
+.routinesPage.ng-enter {
+	animation: slideInRight .5s both ease-in;
+	z-index: 999;
+}
+.routinesPage.ng-leave {
+	animation: slideOutLeft .5s both ease-in;
+	z-index: 888;
+}
+.allRoutinesPage.ng-enter {
+	animation: fadeIn .5s both ease-in;
+	z-index: 999;
+}
+.allRoutinesPage.ng-leave {
+	animation: fadeOut .5s both ease-in;
+	z-index: 888;
+}
+.addRoutinesPage.ng-enter {
+	animation: fadeIn .5s both ease-in;
+	z-index: 999;
+}
+.addRoutinesPage.ng-leave {
+	animation: fadeOut .5s both ease-in;
+	z-index: 888;
+}
+
+.schemePage.ng-enter {
+	animation: slideInRight .5s both ease-in;
+	z-index: 999;
+}
+.schemePage.ng-leave {
+	animation: slideOutLeft .5s both ease-in;
+	z-index: 888;
 }
 
 /*******************************************************************************************
@@ -135,6 +195,7 @@ a {
 	background-color: rgba(255,255,255, .6);
 	position: fixed;
 	top: 0;
+	transition: all .2s ease-in-out;
 	
 	h4, li, p {color: black;}
 	
@@ -171,10 +232,12 @@ a {
 
 #menu.closed {
 	left: -80vw;
+	transition: all .2s ease-in-out;
 }
 
 #menu.opened {
 	left: 0;
+	transition: all .2s ease-in-out;
 }
 
 .menubutton {
@@ -191,6 +254,7 @@ a {
 	-ms-user-select: none;
 	-o-user-select: none;
 	user-select: none;
+	transition: all .2s ease-in-out;
 }
 
 
@@ -204,10 +268,12 @@ a {
 
 #content.closed {
 	filter: none;
+	transition: all .2s ease-in-out;
 }
 
 #content.opened {
 	filter: blur(10px);
+	transition: all .2s ease-in-out;
 }
 
 
