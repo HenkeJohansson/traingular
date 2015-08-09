@@ -15,7 +15,7 @@ html, body {
 }
 
 body {
-	// background-color: #0C8D64;
+	// background: linear-gradient(top, $skyBlue 0%, $midnightPurple 100%);
 	@include linear-gradient($skyBlue 0%, $midnightPurple 100%);
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
 	font-weight: 300;
@@ -67,20 +67,20 @@ a {
 .ng-leave  { z-index: 9999; }
 
 .homePage.ng-enter {
-	animation: slideInRight .5s both ease-in;
+	animation: fadeIn .5s both ease-in;
 	z-index: 999;
 }
 .homePage.ng-leave {
-	animation: slideOutLeft .5s both ease-in;
+	animation: fadeOut .5s both ease-in;
 	z-index: 888;
 }
 
 .routinesPage.ng-enter {
-	animation: slideInRight .5s both ease-in;
+	animation: fadeIn .5s both ease-in;
 	z-index: 999;
 }
 .routinesPage.ng-leave {
-	animation: slideOutLeft .5s both ease-in;
+	animation: fadeOut .5s both ease-in;
 	z-index: 888;
 }
 .allRoutinesPage.ng-enter {
@@ -101,11 +101,11 @@ a {
 }
 
 .schemePage.ng-enter {
-	animation: slideInRight .5s both ease-in;
+	animation: fadeIn .5s both ease-in;
 	z-index: 999;
 }
 .schemePage.ng-leave {
-	animation: slideOutLeft .5s both ease-in;
+	animation: fadeOut .5s both ease-in;
 	z-index: 888;
 }
 
