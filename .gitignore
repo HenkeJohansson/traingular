@@ -3,6 +3,8 @@
 css/style.css
 config.codekit
 pages/kladd.html
+scss/.sass-cache
+.codekit-cache
 
 pages/kladd.html
 
@@ -15,3 +17,5 @@ pages/kladd.html
 api/includes/pass.php
 
 api/includes/pass.inc.php
+
+*.scssc
