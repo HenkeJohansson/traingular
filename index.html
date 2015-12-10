@@ -21,11 +21,12 @@
 
 </head>
 <body ng-controller="mainCtrl as main">
+	<div id="background"></div>
 
 	<div id="wrapper">
 
 		<span class="menubutton" ng-click="main.toggleMenu()" ng-class="{opened: main.isOpened, closed: !main.isOpened}">☰</span>
-	
+
 		<div id="content" ng-class="{opened: main.isOpened, closed: !main.isOpened}">
 
 			<div ng-view id="view" class="page {{vm.pageClass}}">

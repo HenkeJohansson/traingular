@@ -16,9 +16,18 @@ html, body {
 
 body {
 	// background: linear-gradient(top, $skyBlue 0%, $midnightPurple 100%);
-	@include linear-gradient($skyBlue 0%, $midnightPurple 100%);
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	// @include linear-gradient($skyBlue 0%, $midnightPurple 100%);
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 	font-weight: 300;
+}
+
+#background {
+	@include linear-gradient($skyBlue 0%, $midnightPurple 100%);
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }
 
 #view {
@@ -38,7 +47,7 @@ h5 {font-size: 22px;}
 
 a {
 	color: white;
-	
+
 	&:hover {
 		text-decoration: none;
 		color: white;
@@ -144,7 +153,7 @@ a {
 			text-align: center;
 			line-height: 64px;
 			text-transform: uppercase;
-			
+
 			.accordion-toggle {
 				text-decoration: none;
 			}
@@ -174,7 +183,7 @@ a {
 			display: inline-block;
 		}
 	}
-	
+
 	#axlar{ background-image: url(../images/); }
 	#armar{ background-image: url(../images/); }
 	#bröst{ background-image: url(../images/); }
@@ -196,21 +205,21 @@ a {
 	position: fixed;
 	top: 0;
 	transition: all .2s ease-in-out;
-	
+
 	h4, li, p {color: black;}
-	
+
 	h3 {
 		text-align: center;
 		margin-top: 50px;
 		text-transform: uppercase;
 	}
-	
+
 	.menu-list {
 		list-style: none;
 		padding: 0;
 		// background-color: $transparentWhite;
 		margin-top: 50px;
-		
+
 		li {
 			width: 100%;
 			padding-left: 20px;
@@ -286,7 +295,7 @@ a {
 *******************************************************************************************/
 .header {
 	height: 40vh;
-	
+
 	h1 {
 		margin: 0;
 		line-height: 40vh;
@@ -308,7 +317,7 @@ a {
 	width: 100%;
 	list-style: none;
 	display: inline-block;
-	
+
 	a {
 		text-decoration: none;
 		color: white;
@@ -340,7 +349,7 @@ a {
 }
 
 .exercise-sub {
-	
+
 	.active {
 		background-color: #CBCBCB;
 	}
@@ -356,7 +365,7 @@ a {
 	form#exercise-form {
 		width: 90%;
 		margin: 30px auto;
-		
+
 		label {
 			width: 48%;
 			text-transform: uppercase;
@@ -369,7 +378,7 @@ a {
 			padding: 5px;
 			background-color: rgba(255,255,255, .4);
 			border: none;
-			
+
 			&[type=submit] {
 				width: 100%;
 				height: 30px;
@@ -380,7 +389,7 @@ a {
 				background-color: transparent;
 				color: black;
 				text-transform: uppercase;
-				
+
 				&:hover {
 					border-color: white;
 					color: white;
@@ -460,7 +469,7 @@ a {
 		-ms-user-select: none;
 		-o-user-select: none;
 		user-select: none;
-		
+
 		input[type="checkbox"] {
 			display: none;
 			-webkit-user-select: none;
@@ -468,7 +477,7 @@ a {
 			-ms-user-select: none;
 			-o-user-select: none;
 			user-select: none;
-			
+
 			+ label span {
 				display: inline-block;
 				width: 45px;
@@ -497,7 +506,7 @@ a {
 
 		.exercise {
 			// display: inline-block;
-			
+
 			.exercise-nfo {
 				list-style: none;
 				display: block;
@@ -506,9 +515,9 @@ a {
 					list-style: none;
 				}
 			}
-			
+
 		}
-		
+
 		.exercise-desc {
 			border-bottom: 1px solid white;
 		}
